@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luksus Tøj Abonnement</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header>
+    <h1>Luksus Tøj Abonnement</h1>
+    <p>Abonner på stilfuldt basistøj – vi vælger for dig.</p>
+</header>
+
+<main>
+    <form id="subscriptionForm">
+        <label for="package">Vælg pakke:</label>
+        <select id="package" required>
+            <option value="">-- Vælg --</option>
+            <option value="tshirt">T-shirt pakke</option>
+            <option value="hoodie">Hoodie pakke</option>
+            <option value="skjorte">Skjorte pakke</option>
+        </select>
+
+        <label for="frequency">Leveringsfrekvens:</label>
+        <select id="frequency" required>
+            <option value="">-- Vælg --</option>
+            <option value="3">Hver 3. måned</option>
+            <option value="6">Hver 6. måned</option>
+            <option value="12">Hver 12. måned</option>
+        </select>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="din@email.dk" required />
+
+        <button type="submit">Tilmeld</button>
+    </form>
+
+    <div id="confirmation" style="display:none;">
+        <h2>Tak for din tilmelding!</h2>
+        <p>Vi sender dig en adgangskode via email.</p>
+        <p>Del din tilmelding:</p>
+        <button onclick="share('facebook')">Facebook</button>
+        <button onclick="share('linkedin')">Linke-ding</button>
+    </div>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
