@@ -21,7 +21,7 @@ document.getElementById('subscriptionForm').addEventListener('submit', function 
 
     if (!packageType || !frequency || !email) return;
 
-    fetch('http://localhost:8080/api/subscriptions', {
+    fetch('https://kvalitetsklaedt-backend-fzh5gff8ccdrbyg3.northeurope-01.azurewebsites.net/api/subscriptions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ packageType, frequency, email })
