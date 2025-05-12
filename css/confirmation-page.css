@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0d0f18;
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.confirmation {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.confirmation__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.confirmation__title span {
+    display: block;
+}
+
+.confirmation__subtitle {
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+.confirmation__summary {
+    border: 2px solid #d3b36a;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.summary__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #333;
+}
+
+.summary__item:last-child {
+    border-bottom: none;
+}
+
+.summary__item-icon {
+    width: 75px;
+    height: 75px;
+}
+
+.confirmation__actions {
+    margin-top: auto;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button--back {
+    background: #ccc;
+    color: black;
+    flex: 1;
+    margin-right: 0.5rem;
+}
+
+.button--confirm {
+    background: #d3b36a;
+    color: black;
+    flex: 3;
+}
