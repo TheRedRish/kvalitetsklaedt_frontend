@@ -17,15 +17,16 @@ const imageMap = {
 };
 
 let selectedProductType = 't-shirt'; // Default selection
-const previewImg = document.querySelector('.preview img');
+const previewImg = document.querySelector('.product-config__preview-img');
 const colorContainer = document.getElementById('color-options');
+const nextButton = document.querySelector('.next-step__btn');
 
 function updateColorOptions(type) {
     colorContainer.innerHTML = ''; // Clear previous colors
 
     for (const color in imageMap[type]) {
         const box = document.createElement('div');
-        box.classList.add('option-box');
+        box.classList.add('product-config__option-box');
         box.dataset.img = imageMap[type][color];
 
         const img = document.createElement('img');
@@ -36,8 +37,8 @@ function updateColorOptions(type) {
         box.append(color);
 
         box.addEventListener('click', () => {
-            document.querySelectorAll('#color-options .option-box').forEach(b => b.classList.remove('selected'));
-            box.classList.add('selected');
+            document.querySelectorAll('#color-options .product-config__option-box').forEach(b => b.classList.remove('product-config__option-box--selected'));
+            box.classList.add('product-config__option-box--selected');
             previewImg.src = box.dataset.img;
         });
 
@@ -45,17 +46,17 @@ function updateColorOptions(type) {
     }
 
     // Mark first as selected and show its image
-    const firstBox = colorContainer.querySelector('.option-box');
+    const firstBox = colorContainer.querySelector('.product-config__option-box');
     if (firstBox) {
-        firstBox.classList.add('selected');
+        firstBox.classList.add('product-config__option-box--selected');
         previewImg.src = firstBox.dataset.img;
     }
 }
 
-document.querySelectorAll('.options .option-box').forEach(option => {
+document.querySelectorAll('.product-config__options .product-config__option-box').forEach(option => {
     option.addEventListener('click', () => {
-        document.querySelectorAll('.options .option-box').forEach(o => o.classList.remove('selected'));
-        option.classList.add('selected');
+        document.querySelectorAll('.product-config__options .product-config__option-box').forEach(o => o.classList.remove('product-config__option-box--selected'));
+        option.classList.add('product-config__option-box--selected');
 
         selectedProductType = option.id;
         updateColorOptions(selectedProductType);
@@ -65,15 +66,25 @@ document.querySelectorAll('.options .option-box').forEach(option => {
 
 let selectedSize = null;
 
-const sizeButtons = document.querySelectorAll('#size-options .circle-btn');
+const sizeButtons = document.querySelectorAll('#size-options .product-config__circle-btn');
 sizeButtons.forEach(button => {
     button.addEventListener('click', () => {
-        sizeButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+        sizeButtons.forEach(btn => btn.classList.remove('product-config__circle-btn--active'));
+        button.classList.add('product-config__circle-btn--active');
         selectedSize = button.textContent.trim();
+        nextButton.innerHTML = "Næste";
+        nextButton.style.backgroundColor = '#d1ac42';
         console.log(selectedSize);
     });
 });
-
 // Initialize on page load
 updateColorOptions(selectedProductType);
+
+nextButton.addEventListener('click', () => {
+    if (selectedSize !== null ) {
+
+    } else  {
+        nextButton.innerHTML = "Vælg en størrelse før du kan gå videre";
+        nextButton.style.backgroundColor = '#c44545';
+    }
+})
