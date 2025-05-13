@@ -138,8 +138,8 @@ body {
 }
 
 .product-config__circle-btn {
-    border: 1px solid white;
-    border-radius: 50%;
+    border: 0.07rem solid white;
+    border-radius: 60%;
     width: 40px;
     height: 40px;
     display: flex;
@@ -171,16 +171,18 @@ body {
     width: 100%;
 }
 
-@media (min-width: 768px) {
-    .product-config__preview-img {
-        width: 140px;
+@media (min-width: 572px) {
+
+    .product-config__colors {
+        grid-area: colors;
+        display: flex;
+        justify-content: center;
+        gap: 0.4rem;
+        padding-left: 3rem;
+        flex-wrap: wrap;
+        margin-top: 0.3rem;
+        margin-bottom: 0.5rem;
     }
 
-    .product-config__option-box {
-        width: 100px;
-    }
 
-    .product-config {
-        gap: 2rem;
-    }
 }
