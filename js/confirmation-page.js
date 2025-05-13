@@ -1,6 +1,6 @@
 import { createOrderItem } from '../components/order-item.js';
 import { createActionButton } from '../components/action-button.js';
-import { trackEvent } from "./event-tracker";
+import { trackEvent } from "./event-tracker.js";
 
 const summary = document.getElementById("order-summary");
 summary.appendChild(createOrderItem("../assets/icons/box.svg", "3 T-shirts"));
@@ -13,4 +13,4 @@ actions.appendChild(createActionButton("Gå til betaling >", "confirmation-succe
 
 document.querySelector(".button--confirm").addEventListener("click", function () {
     trackEvent("confirm", {}); //TODO update to use eventdata from session. ex. {packageType, frequency, email}
-}
+});
