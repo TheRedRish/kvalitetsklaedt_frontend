@@ -1,4 +1,3 @@
-/* ========== GLOBAL STYLES ========== */
 * {
     margin: 0;
     padding: 0;
@@ -11,8 +10,7 @@ body {
     color: white;
 }
 
-/* ========== HEADER ========== */
-.header {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,33 +18,31 @@ body {
     background-color: #0c111b;
 }
 
-.header__logo {
+.logo {
     font-size: 1.3rem;
     color: #d1ac42;
 }
 
-.header__hamburger {
+.hamburger {
     font-size: 2rem;
     color: #d1ac42;
 }
 
-/* ========== MAIN ========== */
-.main {
+main {
     padding: 1rem;
     text-align: center;
 }
 
-.main__title {
+h1 {
     font-size: 1.6rem;
     margin-bottom: 0.5rem;
 }
 
-.main__description {
+p {
     font-size: 1rem;
     margin-bottom: 1.5rem;
 }
 
-/* ========== STEPPER ========== */
 .stepper {
     display: flex;
     justify-content: center;
@@ -54,67 +50,67 @@ body {
     margin-bottom: 1rem;
 }
 
-.stepper__step {
+.step {
     color: #d1ac42;
     border-bottom: 2px solid #d1ac42;
     padding-bottom: 0.2rem;
 }
 
-/* ========== PRODUCT CONFIG ========== */
+/* === NEW LAYOUT STYLES === */
 .product-config {
     display: grid;
     grid-template-areas:
-    "product-config__options product-config__preview product-config__sizes"
-    "product-config__colors product-config__colors product-config__colors";
+    "options preview sizes"
+    "colors  colors  colors";
     grid-template-columns: auto 1fr auto;
-    gap: 0.5rem;
     align-items: center;
     justify-content: center;
+
 }
 
-/* Grid Areas */
-.product-config__options {
-    grid-area: product-config__options;
+/* GRID AREA ASSIGNMENTS */
+.options {
+    grid-area: options;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
 }
 
-.product-config__preview {
-    grid-area: product-config__preview;
+.preview {
+    grid-area: preview;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.product-config__preview-img {
+.preview img {
     width: 15.5rem;
     height: 21.5rem;
     object-fit: contain;
     border-radius: 0.5rem;
 }
 
-.product-config__sizes {
-    grid-area: product-config__sizes;
+.sizes {
+    grid-area: sizes;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
 }
 
-.product-config__colors {
-    grid-area: product-config__colors;
+.colors {
+    grid-area: colors;
     display: flex;
     justify-content: right;
-    gap: 1rem;
+    gap: 0.4rem;
     flex-wrap: wrap;
     margin-top: 0.3rem;
     margin-bottom: 0.5rem;
 }
 
-/* ========== COMPONENTS ========== */
+/* SHARED STYLES */
 .option-box {
-    width: 6rem;
-    height: 7rem;
+    width: 6rem; /* consistent width */
+    height: 7rem; /* consistent height */
     border: 1px solid #fff;
     border-radius: 0.3rem;
     background-color: transparent;
@@ -130,14 +126,14 @@ body {
     padding-bottom: 1rem;
 }
 
-.option-box__img {
+.option-box img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    border-radius: inherit;
+    border-radius: inherit
 }
 
-.option-box--selected {
+.option-box.selected {
     border: 1px solid #d1ac42;
 }
 
@@ -153,7 +149,7 @@ body {
     cursor: pointer;
 }
 
-.circle-btn--active {
+.circle-btn.active {
     background-color: #d1ac42;
     color: #0c111b;
 }
@@ -168,10 +164,15 @@ body {
     cursor: pointer;
     width: 100%;
 }
+.next-step {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
 
-/* ========== RESPONSIVE ========== */
+/* RESPONSIVE TWEAKS */
 @media (min-width: 768px) {
-    .product-config__preview-img {
+    .preview img {
         width: 140px;
     }
 
@@ -182,16 +183,4 @@ body {
     .product-config {
         gap: 2rem;
     }
-}
-
-@media (max-width: 480px) {
-    /* Extra small devices */
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
-    /* Small devices */
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    /* Medium devices */
 }
