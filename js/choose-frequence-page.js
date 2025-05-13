@@ -1,4 +1,5 @@
 import { createFrequenceCard } from '../components/frequence-card.js';
+import { createActionButton } from '../components/action-button.js';
 
 const cardsData = [
     {
@@ -26,3 +27,7 @@ cardsData.forEach(card => {
     const cardElement = createFrequenceCard(card);
     container.appendChild(cardElement);
 });
+
+const actions = document.getElementById("confirm-actions");
+actions.appendChild(createActionButton("< Tilbage", "#", "button--back"));
+actions.appendChild(createActionButton("Gå til betaling >", "confirmation-success.html", "button--confirm"));
