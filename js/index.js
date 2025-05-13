@@ -1,3 +1,14 @@
+import { createBreadcrumb } from '../components/breadcrumbs.js';
+
+document.addEventListener("DOMContentLoaded", () => {
+    const target = document.querySelector(".frequence-page__breadcrumbs");
+    if (target) {
+        target.appendChild(createBreadcrumb(1)); // eller det relevante step
+    } else {
+        console.warn("❗ .frequence-page__breadcrumbs ikke fundet");
+    }
+});
+
 const imageMap = {
     't-shirt': {
         Hvid: 'assets/images/t-shirt.png',
@@ -87,3 +98,5 @@ nextButton.addEventListener('click', () => {
         nextButton.style.backgroundColor = '#c44545';
     }
 })
+
+

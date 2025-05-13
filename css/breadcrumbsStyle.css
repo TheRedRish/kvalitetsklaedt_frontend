@@ -1,0 +1,42 @@
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto;
+    gap: 0.5rem;
+}
+
+.breadcrumbs__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.breadcrumbs__circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.breadcrumbs__label {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.breadcrumbs__step--active .breadcrumbs__circle {
+    border-color: #d3b36a;
+    color: #d3b36a;
+}
+
+.breadcrumbs__line {
+    height: 1px;
+    width: 32px;
+    background-color: white;
+    opacity: 0.4;
+}
