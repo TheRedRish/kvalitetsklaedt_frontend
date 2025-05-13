@@ -1,4 +1,7 @@
 import { createFrequenceCard } from '../components/frequence-card.js';
+import { navbar } from "../components/navbar.js";
+
+document.body.prepend(navbar());
 
 const cardsData = [
     {

@@ -1,5 +1,8 @@
 import { createOrderItem } from '../components/order-item.js';
 import { createActionButton } from '../components/action-button.js';
+import { navbar } from "../components/navbar.js";
+
+document.body.prepend(navbar());
 
 const summary = document.getElementById("order-summary");
 summary.appendChild(createOrderItem("../assets/icons/box.svg", "3 T-shirts"));

@@ -1,7 +1,7 @@
 :root{
     --blue: #0f171f;
     --white: #f5f5f5;
-    --gold: #d2b36c;
+    --gold: #d7be74;
     --goldHover: #b89a58;
     --black: #000;
     --inputBorderColor: #ccc;
@@ -17,6 +17,7 @@ body {
 
 header{
     background-color: #0f171f;
+    height: 6rem;
 }
 
 /* Headings */

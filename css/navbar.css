@@ -1,0 +1,38 @@
+.dropdown-menu {
+    position: absolute;
+    top: 60px; /* adjust based on header height */
+    right: 10px;
+    background-color: var(--blue);
+    border: 1px solid var(--gold);
+    border-radius: 0.5rem ;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: var(--white);
+    padding: 0.5rem;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.hidden {
+    display: none;
+}
+
+.logo {
+    font-size: 2rem;
+    color: var(--gold);
+}
+
+.navbarIcons {
+    width: 2.5rem;
+    color: #d1ac42;
+}
+
+

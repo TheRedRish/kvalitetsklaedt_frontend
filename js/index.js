@@ -1,3 +1,7 @@
+import { navbar } from "../components/navbar.js";
+
+document.body.prepend(navbar());
+
 let selectedProductType = 'T-Shirt'; // Default selected
 
 function updatePreview(selectedBox) {
