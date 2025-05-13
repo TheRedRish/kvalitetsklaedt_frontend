@@ -2,49 +2,66 @@
 <html lang="da">
 <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luksus Tøj Abonnement</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>KvalitetsKlædt - Vælg tøjtype</title>
 </head>
 <body>
-<header>
-    <h1>Luksus Tøj Abonnement</h1>
-    <p>Abonner på stilfuldt basistøj – vi vælger for dig.</p>
+<header class="header">
+    <div class="header__logo">KvalitetsKlædt.dk</div>
+    <div class="header__hamburger">≡</div>
 </header>
 
-<main>
-    <form id="subscriptionForm">
-        <label for="package">Vælg pakke:</label>
-        <select id="package" required>
-            <option value="">-- Vælg --</option>
-            <option value="tshirt">T-shirt pakke</option>
-            <option value="hoodie">Hoodie pakke</option>
-            <option value="skjorte">Skjorte pakke</option>
-        </select>
+<main class="main">
+    <h1 class="main__title">Abonner på basistøj til mænd</h1>
+    <p class="main__description">Stilfuldt basistøj. Leveret diskret. <br>Uden besvær</p>
 
-        <label for="frequency">Leveringsfrekvens:</label>
-        <select id="frequency" required>
-            <option value="">-- Vælg --</option>
-            <option value="3">Hver 3. måned</option>
-            <option value="6">Hver 6. måned</option>
-            <option value="12">Hver 12. måned</option>
-        </select>
+    <div class="stepper">
+        <div class="stepper__step stepper__step--active">1<br>Vælg pakke</div>
+        <div class="stepper__step">2<br>Frekvens</div>
+        <div class="stepper__step">3<br>Bekræft</div>
+    </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" placeholder="din@email.dk" required />
+    <div class="product-config">
+        <div class="product-config__options">
+            <div class="product-config__option-box product-config__option-box--selected" id="t-shirt" data-type="T-Shirt">
+                <img class="product-config__option-box-img" src="assets/images/t-shirt.png" alt="T-Shirt"/>
+                T-Shirt
+            </div>
+            <div class="product-config__option-box" id="hoodie" data-type="Hoodie">
+                <img class="product-config__option-box-img" src="assets/images/hoodie-sort.png" alt="Hoodie"/>
+                Hoodie
+            </div>
+            <div class="product-config__option-box" id="shirt" data-type="Skjorte">
+                <img class="product-config__option-box-img" src="assets/images/shirt-navy.png" alt="Skjorte"/>
+                Skjorte
+            </div>
+        </div>
 
-        <button type="submit">Tilmeld</button>
-    </form>
+        <div class="product-config__preview">
+            <img id="preview-img" class="product-config__preview-img" src="assets/images/t-shirt.png" alt="Preview" />
+        </div>
 
-    <div id="confirmation" style="display:none;">
-        <h2>Tak for din tilmelding!</h2>
-        <p>Vi sender dig en adgangskode via email.</p>
-        <p>Del din tilmelding:</p>
-        <button onclick="share('facebook')">Facebook</button>
-        <button onclick="share('linkedin')">Linke-ding</button>
+        <div class="product-config__sizes" id="size-options">
+            <div class="product-config__circle-btn" id="size-s">S</div>
+            <div class="product-config__circle-btn" id="size-m">M</div>
+            <div class="product-config__circle-btn" id="size-l">L</div>
+            <div class="product-config__circle-btn" id="size-xl">XL</div>
+            <div class="product-config__circle-btn" id="size-xxl">XXL</div>
+            <div class="product-config__circle-btn" id="size-xxxl">XXXL</div>
+        </div>
+
+        <div class="product-config__colors" id="color-options">
+
+
+        </div>
+    </div>
+
+    <div class="next-step">
+        <button class="next-step__btn">Næste</button>
     </div>
 </main>
 
-<script src="js/main.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
