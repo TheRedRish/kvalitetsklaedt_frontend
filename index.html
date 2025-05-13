@@ -1,50 +1,68 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luksus Tøj Abonnement</title>
-    <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/index.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KvalitetsKlædt - Vælg tøjtype</title>
 </head>
 <body>
 <header>
-    <h1>Luksus Tøj Abonnement</h1>
-    <p>Abonner på stilfuldt basistøj – vi vælger for dig.</p>
+  <div class="logo">KvalitetsKlædt.dk</div>
+  <div class="hamburger">≡</div>
 </header>
-
 <main>
-    <form id="subscriptionForm">
-        <label for="package">Vælg pakke:</label>
-        <select id="package" required>
-            <option value="">-- Vælg --</option>
-            <option value="tshirt">T-shirt pakke</option>
-            <option value="hoodie">Hoodie pakke</option>
-            <option value="skjorte">Skjorte pakke</option>
-        </select>
+  <h1>Abonner på basistøj til mænd</h1>
+  <p>Stilfuldt basistøj. Leveret diskret. <br>Uden besvær</p>
 
-        <label for="frequency">Leveringsfrekvens:</label>
-        <select id="frequency" required>
-            <option value="">-- Vælg --</option>
-            <option value="3">Hver 3. måned</option>
-            <option value="6">Hver 6. måned</option>
-            <option value="12">Hver 12. måned</option>
-        </select>
+  <div class="stepper">
+    <div class="step">1<br>Vælg pakke</div>
+    <div class="step">2<br>Frekvens</div>
+    <div class="step">3<br>Bekræft</div>
+  </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" placeholder="din@email.dk" required />
-
-        <button type="submit">Tilmeld</button>
-    </form>
-
-    <div id="confirmation" style="display:none;">
-        <h2>Tak for din tilmelding!</h2>
-        <p>Vi sender dig en adgangskode via email.</p>
-        <p>Del din tilmelding:</p>
-        <button onclick="share('facebook')">Facebook</button>
-        <button onclick="share('linkedin')">Linke-ding</button>
+  <div class="product-config">
+    <div class="options">
+      <div class="option-box selected" onclick="updatePreview(this)" data-type="T-Shirt">
+        <img src="assets/images/t-shirt.png" alt="T-Shirt" />
+        T-Shirt
+      </div>
+      <div class="option-box" onclick="updatePreview(this)" data-type="Hoodie">
+        <img src="assets/images/hoodie.png" alt="Hoodie" />
+        Hoodie
+      </div>
+      <div class="option-box" onclick="updatePreview(this)" data-type="Skjorte">
+        <img src="assets/images/shirt.png" alt="Skjorte" />
+        Skjorte
+      </div>
     </div>
-</main>
 
-<script src="js/main.js"></script>
+    <div class="preview">
+      <img id="preview-image" src="assets/images/t-shirt.png" alt="Preview" />
+    </div>
+
+
+
+
+    <div class="sizes">
+      <div class="circle-btn">S</div>
+      <div class="circle-btn">M</div>
+      <div class="circle-btn">L</div>
+      <div class="circle-btn">XL</div>
+      <div class="circle-btn">XXL</div>
+      <div class="circle-btn">XXXL</div>
+    </div>
+
+    <div class="colors">
+      <div class="option-box selected"><img src="assets/images/t-shirt.png">Hvid</div>
+      <div class="option-box"><img src="assets/images/t-shirt-navy.png">Navy</div>
+      <div class="option-box"><img src="assets/images/t-shirt-sort.png">Sort</div>
+    </div>
+  </div>
+
+
+  <button class="next-btn">Næste</button>
+
+<script src="js/index.js"></script>
 </body>
 </html>
