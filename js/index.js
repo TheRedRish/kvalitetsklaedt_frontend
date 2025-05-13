@@ -16,13 +16,13 @@ const imageMap = {
     }
 };
 
-let selectedProductType = 't-shirt'; // Default selection
+let selectedProductType = 't-shirt';
 const previewImg = document.querySelector('.product-config__preview-img');
 const colorContainer = document.getElementById('color-options');
 const nextButton = document.querySelector('.next-step__btn');
 
 function updateColorOptions(type) {
-    colorContainer.innerHTML = ''; // Clear previous colors
+    colorContainer.innerHTML = '';
 
     for (const color in imageMap[type]) {
         const box = document.createElement('div');
@@ -45,7 +45,6 @@ function updateColorOptions(type) {
         colorContainer.appendChild(box);
     }
 
-    // Mark first as selected and show its image
     const firstBox = colorContainer.querySelector('.product-config__option-box');
     if (firstBox) {
         firstBox.classList.add('product-config__option-box--selected');
@@ -77,7 +76,7 @@ sizeButtons.forEach(button => {
         console.log(selectedSize);
     });
 });
-// Initialize on page load
+
 updateColorOptions(selectedProductType);
 
 nextButton.addEventListener('click', () => {
