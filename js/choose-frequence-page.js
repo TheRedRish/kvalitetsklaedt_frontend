@@ -3,7 +3,7 @@ import { createActionButton } from '../components/action-button.js';
 import { createBreadcrumb } from '../components/breadcrumbs.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Indsæt frekvenskort
+
     const container = document.querySelector(".frequence-page__cards");
     if (container) {
         const cardsData = [
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("❗ .frequence-page__cards not found");
     }
 
-    // 2. Indsæt knapper
+
     const actions = document.querySelector(".confirmation-actions");
     if (actions) {
         actions.appendChild(createActionButton("< Tilbage", "#", "button--back"));
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("❗ .confirmation-actions not found");
     }
 
-    // 3. Indsæt breadcrumbs
+
     const wrapper = document.querySelector(".frequence-page__breadcrumbs");
     if (wrapper) {
         wrapper.appendChild(createBreadcrumb(2));

@@ -3,24 +3,33 @@ export function createBreadcrumb(activeStep = 1) {
     container.className = "breadcrumbs";
 
     const steps = [
-        { number: 1, label: "Vælg pakke" },
-        { number: 2, label: "Frekvens" },
-        { number: 3, label: "Bekræft" }
+        { number: 1, label: "Vælg pakke", url: "index.html" }, // Til roden
+        { number: 2, label: "Frekvens", url: "choose-frequence-pageHTML.html" }, // Samme mappe
+        { number: 3, label: "Bekræft", url: "confirmation-page.html" }
     ];
+    steps.forEach((step, index) => {
+        const isActive = step.number === activeStep;
 
-    steps.forEach(step => {
-        const stepElement = document.createElement("div");
-        stepElement.className = "breadcrumbs__step" + (step.number === activeStep ? " breadcrumbs__step--active" : "");
+        const stepWrapper = document.createElement("div");
+        stepWrapper.className = "breadcrumbs__step" + (isActive ? " breadcrumbs__step--active" : "");
 
-        stepElement.innerHTML = `
-            <div class="breadcrumbs__circle">${step.number}</div>
-            <div class="breadcrumbs__label">${step.label}</div>
-        `;
+        if (isActive) {
+            stepWrapper.innerHTML = `
+        <div class="breadcrumbs__circle">${step.number}</div>
+        <div class="breadcrumbs__label">${step.label}</div>
+      `;
+        } else {
+            stepWrapper.innerHTML = `
+        <a href="${step.url}" class="breadcrumbs__link">
+          <div class="breadcrumbs__circle">${step.number}</div>
+          <div class="breadcrumbs__label">${step.label}</div>
+        </a>
+      `;
+        }
 
-        container.appendChild(stepElement);
+        container.appendChild(stepWrapper);
 
-        // Tilføj streg mellem hvis det ikke er sidste step
-        if (step.number < steps.length) {
+        if (index < steps.length - 1) {
             const line = document.createElement("div");
             line.className = "breadcrumbs__line";
             container.appendChild(line);
