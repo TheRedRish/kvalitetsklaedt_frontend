@@ -20,22 +20,19 @@ header{
     height: 6rem;
 }
 
-/* Headings */
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     color: var(--white);
     margin-bottom: 0.5em;
 }
 
-/* Paragraphs */
 p {
     font-size: 1rem;
     line-height: 1.6;
     color: var(--white);
 }
 
-/* Buttons */
-button {
+button, .button {
     background-color: var(--gold);
     color: var(--black);
     border: none;
@@ -51,13 +48,11 @@ button:hover {
     background-color: var(--goldHover);
 }
 
-/* Links */
 a {
     color: var(--goldHover);
     text-decoration: none;
 }
 
-/* Input fields */
 input, select {
     font-family: 'Playfair Display', serif;
     padding: 0.5em;
@@ -66,6 +61,5 @@ input, select {
     margin-bottom: 1em;
 }
 
-/* Utility spacing (optional) */
 .mt-1 { margin-top: 1em; }
 .mb-1 { margin-bottom: 1em; }
