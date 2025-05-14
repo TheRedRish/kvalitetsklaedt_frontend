@@ -1,7 +1,8 @@
 import {getSessionToken} from './session.js';
 
-const url = 'http://localhost:8080';
+const url = 'https://kvalitetsklaedt-backend-fzh5gff8ccdrbyg3.northeurope-01.azurewebsites.net';
 
+// Gets token used as ID for the session and sends the event data to the backend
 function trackEvent(eventType, eventData = {}) {
     const payload = {
         sessionId: getSessionToken(),
