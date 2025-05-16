@@ -162,18 +162,10 @@ body {
 }
 
 .next-step__btn {
-    background-color: #d1ac42;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    cursor: pointer;
     width: 100%;
 }
 
 @media (min-width: 572px) {
-
     .product-config__colors {
         grid-area: colors;
         display: flex;
@@ -184,6 +176,4 @@ body {
         margin-top: 0.3rem;
         margin-bottom: 0.5rem;
     }
-
-
 }
