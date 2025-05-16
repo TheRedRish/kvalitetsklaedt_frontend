@@ -1,0 +1,25 @@
+.contactPageDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.contactPageDiv__person {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contactPageDiv__img {
+    width: 15rem;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+}
+
+.contactPageDiv__textDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

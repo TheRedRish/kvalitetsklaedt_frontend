@@ -1,7 +1,7 @@
 .dropdown-menu {
     position: absolute;
-    top: 60px; /* adjust based on header height */
-    right: 10px;
+    top: 4rem;
+    right: 1rem;
     background-color: var(--blue);
     border: 1px solid var(--gold);
     border-radius: 0.5rem ;
