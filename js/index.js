@@ -1,20 +1,24 @@
+import { createActionButton } from '../components/action-button.js';
+
 const imageMap = {
     't-shirt': {
-        Hvid: 'assets/images/t-shirt.png',
-        Navy: 'assets/images/t-shirt-navy.png',
-        Sort: 'assets/images/t-shirt-sort.png'
+        Hvid: '../assets/images/t-shirt.png',
+        Navy: '../assets/images/t-shirt-navy.png',
+        Sort: '../assets/images/t-shirt-sort.png'
     },
     'hoodie': {
-        Hvid: 'assets/images/hoodie.png',
-        Navy: 'assets/images/hoodie-navy.png',
-        Sort: 'assets/images/hoodie-sort.png'
+        Hvid: '../assets/images/hoodie.png',
+        Navy: '../assets/images/hoodie-navy.png',
+        Sort: '../assets/images/hoodie-sort.png'
     },
     'shirt': {
-        Hvid: 'assets/images/shirt.png',
-        Navy: 'assets/images/shirt-navy.png',
-        Sort: 'assets/images/shirt-sort.png'
+        Hvid: '../assets/images/shirt.png',
+        Navy: '../assets/images/shirt-navy.png',
+        Sort: '../assets/images/shirt-sort.png'
     }
 };
+
+document.querySelector(".next-step").appendChild(createActionButton('Næste >', 'vaelgFrekvens.html', 'next-step__btn'));
 
 let selectedProductType = sessionStorage.getItem('selectedProductType') || 't-shirt';
 let selectedSize = sessionStorage.getItem('selectedSize') || null;
@@ -91,7 +95,7 @@ sizeButtons.forEach(button => {
         sessionStorage.setItem('selectedSize', selectedSize);
 
         nextButton.innerHTML = "Næste";
-        nextButton.style.backgroundColor = '#d1ac42';
+        nextButton.style.backgroundColor = 'var(--gold)';
     });
 });
 
@@ -122,5 +126,5 @@ if (selectedSize) {
         }
     });
     nextButton.innerHTML = "Næste";
-    nextButton.style.backgroundColor = '#d1ac42';
+    nextButton.style.backgroundColor = 'var(--gold)';
 }
