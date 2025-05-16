@@ -22,9 +22,6 @@ newsletterSubscriptionButton.addEventListener("click", async (e) => {
     const data = {
         email: email,
         feedback: feedback,
-        feedbackType: "general"
+        typeOfFeedback: "general"
     };
-
-    console.log("Klar til at sende data:", data);
-
 });
