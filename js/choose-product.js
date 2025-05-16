@@ -143,7 +143,7 @@ sizeButtons.forEach(button => {
 nextButton.addEventListener('click', (e) => {
     if (!selectedSize) {
         e.preventDefault();
-        nextButton.innerHTML = "Vælg en størrelse før du kan gå videre";
+        nextButton.innerHTML = "Vælg en størrelse ⛔️";
         nextButton.style.backgroundColor = '#c44545';
     }
 });
