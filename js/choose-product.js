@@ -22,7 +22,11 @@ document.querySelector(".next-step").appendChild(
     createActionButton('Næste >', 'vaelgFrekvens.html', 'next-step__btn')
 );
 
-let selectedProductType = sessionStorage.getItem('selectedProductType') || 't-shirt';
+if (!sessionStorage.getItem('selectedProductType')) {
+    sessionStorage.setItem('selectedProductType', 't-shirt');
+}
+
+let selectedProductType = sessionStorage.getItem('selectedProductType');
 let selectedSize = sessionStorage.getItem('selectedSize') || null;
 let selectedColor = sessionStorage.getItem('selected_color') || null;
 
