@@ -30,8 +30,8 @@
 }
 
 .breadcrumbs__step--active .breadcrumbs__circle {
-    border-color: #d3b36a;
-    color: #d3b36a;
+    border-color: var(--goldHover);
+    color: var(--goldHover);
 }
 
 .breadcrumbs__line {
@@ -50,6 +50,6 @@
 }
 
 .breadcrumbs__link:hover .breadcrumbs__circle {
-    border-color: #d3b36a;
-    color: #d3b36a;
+    border-color: var(--goldHover);
+    color: var(--goldHover);
 }

@@ -3,9 +3,9 @@ export function createBreadcrumb(activeStep = 1) {
     container.className = "breadcrumbs";
 
     const steps = [
-        { number: 1, label: "Vælg pakke", url: "index.html" }, // Til roden
-        { number: 2, label: "Frekvens", url: "choose-frequence-pageHTML.html" }, // Samme mappe
-        { number: 3, label: "Bekræft", url: "confirmation-page.html" }
+        {number: 1, label: "Vælg pakke", url: "index.html"}, // Til roden
+        {number: 2, label: "Frekvens", url: "choose-frequence-pageHTML.html"}, // Samme mappe
+        {number: 3, label: "Bekræft", url: "confirmation-page.html"}
     ];
     steps.forEach((step, index) => {
         const isActive = step.number === activeStep;
@@ -13,19 +13,16 @@ export function createBreadcrumb(activeStep = 1) {
         const stepWrapper = document.createElement("div");
         stepWrapper.className = "breadcrumbs__step" + (isActive ? " breadcrumbs__step--active" : "");
 
-        if (isActive) {
-            stepWrapper.innerHTML = `
-        <div class="breadcrumbs__circle">${step.number}</div>
-        <div class="breadcrumbs__label">${step.label}</div>
-      `;
-        } else {
-            stepWrapper.innerHTML = `
-        <a href="${step.url}" class="breadcrumbs__link">
-          <div class="breadcrumbs__circle">${step.number}</div>
-          <div class="breadcrumbs__label">${step.label}</div>
-        </a>
-      `;
+        let stepWrapperInnerHTML = ``;
+
+        if (!isActive) {
+            stepWrapperInnerHTML = `<a href=\"${step.url}\" className=\"breadcrumbs__link\">`;
         }
+
+        stepWrapperInnerHTML += `<div class="breadcrumbs__circle">${step.number}</div>
+        <div class="breadcrumbs__label">${step.label}</div>`
+
+        stepWrapper.innerHTML = stepWrapperInnerHTML;
 
         container.appendChild(stepWrapper);
 

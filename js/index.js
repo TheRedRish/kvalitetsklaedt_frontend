@@ -129,9 +129,9 @@ if (selectedSize) {
 
 }
 
-const wrapper = document.querySelector(".frequence-page__breadcrumbs");
-if (wrapper) {
-    wrapper.appendChild(createBreadcrumb(1));
+const breadcrumbContainer  = document.querySelector(".frequence-page__breadcrumbs");
+if (breadcrumbContainer ) {
+    breadcrumbContainer .appendChild(createBreadcrumb(1));
 } else {
     console.warn("❗ .frequence-page__breadcrumbs not found");
 }

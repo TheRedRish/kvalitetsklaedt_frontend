@@ -12,8 +12,10 @@ const actions = document.getElementById("confirm-actions");
 actions.appendChild(createActionButton("< Tilbage", "#", "button--back"));
 actions.appendChild(createActionButton("Gå til betaling >", "confirmation-success.html", "button--confirm"));
 
-const wrapper = document.querySelector(".frequence-page__breadcrumbs");
-wrapper.appendChild(createBreadcrumb(3));
+const breadcrumbContainer = document.querySelector(".frequence-page__breadcrumbs");
+breadcrumbContainer.appendChild(createBreadcrumb(3));
+
+
 document.querySelector(".button--confirm").addEventListener("click", function () {
     trackEvent("confirm", {}); //TODO update to use eventdata from session. ex. {packageType, frequency, email}
 });

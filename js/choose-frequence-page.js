@@ -45,10 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    const wrapper = document.querySelector(".frequence-page__breadcrumbs");
-    if (wrapper) {
-        wrapper.appendChild(createBreadcrumb(2));
+    const breadcrumbContainer = document.querySelector(".frequence-page__breadcrumbs");
+    if (breadcrumbContainer) {
+        breadcrumbContainer.appendChild(createBreadcrumb(2));
     } else {
         console.warn("❗ .frequence-page__breadcrumbs not found");
     }
+
 });
