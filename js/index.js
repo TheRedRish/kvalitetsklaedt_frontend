@@ -1,3 +1,5 @@
+import { createBreadcrumb } from '../components/breadcrumbs.js';
+
 const imageMap = {
     't-shirt': {
         Hvid: 'assets/images/t-shirt.png',
@@ -79,7 +81,6 @@ document.querySelectorAll('.product-config__options .product-config__option-box'
     });
 });
 
-let selectedSize = null;
 
 sizeButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -125,6 +126,13 @@ if (selectedSize) {
     });
     nextButton.innerHTML = "Næste";
     nextButton.style.backgroundColor = '#d1ac42';
+
 }
 
+const wrapper = document.querySelector(".frequence-page__breadcrumbs");
+if (wrapper) {
+    wrapper.appendChild(createBreadcrumb(1));
+} else {
+    console.warn("❗ .frequence-page__breadcrumbs not found");
+}
 
