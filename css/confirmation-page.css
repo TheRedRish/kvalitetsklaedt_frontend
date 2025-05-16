@@ -58,6 +58,10 @@ html, body {
     height: 75px;
 }
 
+.summary__item span {
+    font-size: x-large;
+}
+
 .confirmation__actions {
     margin-top: auto;
     display: flex;
