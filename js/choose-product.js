@@ -18,7 +18,9 @@ const imageMap = {
     }
 };
 
-document.querySelector(".next-step").appendChild(createActionButton('Næste >', 'vaelgFrekvens.html', 'next-step__btn'));
+document.querySelector(".next-step").appendChild(
+    createActionButton('Næste >', 'vaelgFrekvens.html', 'next-step__btn')
+);
 
 let selectedProductType = sessionStorage.getItem('selectedProductType') || 't-shirt';
 let selectedSize = sessionStorage.getItem('selectedSize') || null;
@@ -26,7 +28,7 @@ let selectedColor = sessionStorage.getItem('selected_color') || null;
 
 const previewImg = document.querySelector('.product-config__preview-img');
 const colorContainer = document.getElementById('color-options');
-const nextButton = document.querySelector('.next-step__btn');
+const nextButton = document.querySelector('.next-step__btn'); // now this works correctly
 const sizeButtons = document.querySelectorAll('#size-options .product-config__circle-btn');
 
 function updateColorOptions(type) {
@@ -138,10 +140,9 @@ sizeButtons.forEach(button => {
     });
 });
 
-nextButton.addEventListener('click', () => {
-    if (selectedSize) {
-        // MAKE GO TO NEXT PAGE LOGIC
-    } else {
+nextButton.addEventListener('click', (e) => {
+    if (!selectedSize) {
+        e.preventDefault();
         nextButton.innerHTML = "Vælg en størrelse før du kan gå videre";
         nextButton.style.backgroundColor = '#c44545';
     }
