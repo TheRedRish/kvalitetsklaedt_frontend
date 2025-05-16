@@ -16,10 +16,20 @@ const imageMap = {
     }
 };
 
-let selectedProductType = 't-shirt';
+let selectedProductType = sessionStorage.getItem('selectedProductType') || 't-shirt';
+let selectedSize = sessionStorage.getItem('selectedSize') || null;
+
 const previewImg = document.querySelector('.product-config__preview-img');
 const colorContainer = document.getElementById('color-options');
 const nextButton = document.querySelector('.next-step__btn');
+const sizeButtons = document.querySelectorAll('#size-options .product-config__circle-btn');
+
+document.querySelectorAll('.product-config__options .product-config__option-box').forEach(box => {
+    if (box.id === selectedProductType) {
+        box.classList.add('product-config__option-box--selected');
+    }
+});
+
 
 function updateColorOptions(type) {
     colorContainer.innerHTML = '';
@@ -37,13 +47,16 @@ function updateColorOptions(type) {
         box.append(color);
 
         box.addEventListener('click', () => {
-            document.querySelectorAll('#color-options .product-config__option-box').forEach(b => b.classList.remove('product-config__option-box--selected'));
+            document.querySelectorAll('#color-options .product-config__option-box').forEach(b =>
+                b.classList.remove('product-config__option-box--selected')
+            );
             box.classList.add('product-config__option-box--selected');
             previewImg.src = box.dataset.img;
         });
 
         colorContainer.appendChild(box);
     }
+
 
     const firstBox = colorContainer.querySelector('.product-config__option-box');
     if (firstBox) {
@@ -52,38 +65,62 @@ function updateColorOptions(type) {
     }
 }
 
+
 document.querySelectorAll('.product-config__options .product-config__option-box').forEach(option => {
     option.addEventListener('click', () => {
-        document.querySelectorAll('.product-config__options .product-config__option-box').forEach(o => o.classList.remove('product-config__option-box--selected'));
+        document.querySelectorAll('.product-config__options .product-config__option-box').forEach(o =>
+            o.classList.remove('product-config__option-box--selected')
+        );
         option.classList.add('product-config__option-box--selected');
 
         selectedProductType = option.id;
+        sessionStorage.setItem('selectedProductType', selectedProductType);
         updateColorOptions(selectedProductType);
-        console.log(selectedProductType);
     });
 });
 
-let selectedSize = null;
 
-const sizeButtons = document.querySelectorAll('#size-options .product-config__circle-btn');
 sizeButtons.forEach(button => {
     button.addEventListener('click', () => {
-        sizeButtons.forEach(btn => btn.classList.remove('product-config__circle-btn--active'));
+        sizeButtons.forEach(btn =>
+            btn.classList.remove('product-config__circle-btn--active')
+        );
         button.classList.add('product-config__circle-btn--active');
+
         selectedSize = button.textContent.trim();
+        sessionStorage.setItem('selectedSize', selectedSize);
+
         nextButton.innerHTML = "Næste";
         nextButton.style.backgroundColor = '#d1ac42';
-        console.log(selectedSize);
     });
 });
 
-updateColorOptions(selectedProductType);
 
 nextButton.addEventListener('click', () => {
-    if (selectedSize !== null ) {
+    if (selectedSize !== null) {
 
-    } else  {
+    } else {
         nextButton.innerHTML = "Vælg en størrelse før du kan gå videre";
         nextButton.style.backgroundColor = '#c44545';
     }
-})
+});
+
+
+updateColorOptions(selectedProductType);
+
+document.querySelectorAll('.product-config__options .product-config__option-box').forEach(box => {
+    if (box.id === selectedProductType) {
+        box.classList.add('product-config__option-box--selected');
+    }
+});
+
+
+if (selectedSize) {
+    sizeButtons.forEach(button => {
+        if (button.textContent.trim() === selectedSize) {
+            button.classList.add('product-config__circle-btn--active');
+        }
+    });
+    nextButton.innerHTML = "Næste";
+    nextButton.style.backgroundColor = '#d1ac42';
+}
