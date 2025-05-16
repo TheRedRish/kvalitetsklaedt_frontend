@@ -1,3 +1,5 @@
+import { createBreadcrumb } from '../components/breadcrumbs.js';
+
 import { createActionButton } from '../components/action-button.js';
 
 const imageMap = {
@@ -148,3 +150,11 @@ nextButton.addEventListener('click', () => {
 });
 
 updateColorOptions(selectedProductType);
+
+const breadcrumbContainer  = document.querySelector(".frequence-page__breadcrumbs");
+if (breadcrumbContainer ) {
+    breadcrumbContainer .appendChild(createBreadcrumb(1));
+} else {
+    console.warn("❗ .frequence-page__breadcrumbs not found");
+}
+
