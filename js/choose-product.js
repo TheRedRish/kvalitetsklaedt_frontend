@@ -28,7 +28,7 @@ let selectedColor = sessionStorage.getItem('selected_color') || null;
 
 const previewImg = document.querySelector('.product-config__preview-img');
 const colorContainer = document.getElementById('color-options');
-const nextButton = document.querySelector('.next-step__btn'); // now this works correctly
+const nextButton = document.querySelector('.next-step__btn');
 const sizeButtons = document.querySelectorAll('#size-options .product-config__circle-btn');
 
 function updateColorOptions(type) {
