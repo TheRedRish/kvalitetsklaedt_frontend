@@ -3,9 +3,9 @@ export function createBreadcrumb(activeStep = 1) {
     container.className = "breadcrumbs";
 
     const steps = [
-        {number: 1, label: "Vælg pakke", url: "index.html"}, // Til roden
-        {number: 2, label: "Frekvens", url: "choose-frequence-pageHTML.html"}, // Samme mappe
-        {number: 3, label: "Bekræft", url: "confirmation-page.html"}
+        {number: 1, label: "Vælg pakke", url: "./choose-product.html"}, // Til roden
+        {number: 2, label: "Frekvens", url: "./choose-frequence-pageHTML.html"}, // Samme mappe
+        {number: 3, label: "Bekræft", url: "./confirmation-page.html"}
     ];
     steps.forEach((step, index) => {
         const isActive = step.number === activeStep;
