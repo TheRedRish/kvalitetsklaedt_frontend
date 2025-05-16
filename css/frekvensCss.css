@@ -92,29 +92,18 @@ a {
     margin-top: 0.25rem;
 }
 
-.button {
-    padding: 1rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-}
-
-.button--back {
-    background: #ccc;
-    color: black;
+.confirmation-actions .button--back {
+    background: var(--grey);
     flex: 1;
     margin-right: 0.5rem;
     max-width: 90%;
+    padding: 1rem;
 }
 
-.button--confirm {
-    background: #d3b36a;
-    color: black;
-    flex: 3;
+.confirmation-actions .button--confirm {
+    flex: 4;
 }
+
 
 .confirmation-actions {
     margin-top: auto;
