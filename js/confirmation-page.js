@@ -9,7 +9,7 @@ summary.appendChild(createOrderItem("../assets/images/kalenderIkon.png", "Hvert 
 
 const actions = document.getElementById("confirm-actions");
 actions.appendChild(createActionButton("< Tilbage", "#", "button--back"));
-actions.appendChild(createActionButton("Gå til betaling >", "confirmation-success.html", "button--confirm"));
+actions.appendChild(createActionButton("Gå til betaling >", "newsletter-signup.html", "button--confirm"));
 
 document.querySelector(".button--confirm").addEventListener("click", function () {
     trackEvent("confirm", {}); //TODO update to use eventdata from session. ex. {packageType, frequency, email}
