@@ -24,7 +24,7 @@ const imageMap = {
 };
 
 document.querySelector(".next-step").appendChild(
-    createActionButton('Næste >', 'vaelgFrekvens.html', 'next-step__btn')
+    createActionButton('Næste >', 'choose-frequence-page.html', 'next-step__btn')
 );
 
 let selectedProductType = sessionStorage.getItem('selectedProductType') || 't-shirt';
@@ -145,10 +145,12 @@ sizeButtons.forEach(button => {
     });
 });
 
+
 nextButton.addEventListener('click', (e) => {
     if (!selectedSize) {
         e.preventDefault();
         nextButton.innerHTML = "Vælg en størrelse ⛔️";
+
         nextButton.style.backgroundColor = '#c44545';
     }
 });
