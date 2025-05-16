@@ -1,0 +1,81 @@
+html, body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0d0f18;
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter-signup__content{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 80%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.newsletter-signup__title {
+    font-size: 8.0rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    line-height: 1.2;
+    color: var(--white);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.newsletter-signup__text {
+    font-size: 3.125rem;
+    line-height: 1.6;
+    color: var(--white);
+    text-align: center;
+    max-width: 40ch;
+    margin: 0 auto 2rem;
+}
+
+.newsletter-signup__input {
+    width: 100%;
+    height: 10rem;
+    padding: 2rem;
+    border: 5px solid var(--gold);
+    border-radius: 1rem;
+    background-color: transparent;
+    color: var(--white);
+    font-size: 4rem;
+    font-family: 'Playfair Display', serif;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+
+}
+
+.newsletter-signup__input::placeholder {
+    color: #aaa;
+    font-size: 4rem;
+}
+
+.newsletter-signup__actions{
+    margin-top: auto;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.button--confirm {
+    background: #d3b36a;
+    color: var(--white);
+    flex: 3;
+    height: 4rem;
+    margin-top: 3rem;
+    font-size: 3.5rem;
+    border-radius: 2rem;
+
+}
+

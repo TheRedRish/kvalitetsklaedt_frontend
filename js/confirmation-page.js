@@ -9,8 +9,10 @@ summary.appendChild(createOrderItem("../assets/icons/t-shirt.svg", "Large"));
 summary.appendChild(createOrderItem("../assets/images/kalenderIkon.png", "Hvert kvartal"));
 
 const actions = document.getElementById("confirm-actions");
+
 actions.appendChild(createActionButton("<", "./choose-frequence-page.html", "button--back"));
 actions.appendChild(createActionButton("Gå til betaling >", "confirmation-success.html", "button--confirm"));
+
 
 const breadcrumbContainer = document.querySelector(".frequence-page__breadcrumbs");
 breadcrumbContainer.appendChild(createBreadcrumb(3));
