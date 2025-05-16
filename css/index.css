@@ -1,31 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Playfair Display', serif;
-    background-color: #0c111b;
-    color: white;
-}
-
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     background-color: #0c111b;
-}
-
-.header__logo {
-    font-size: 1.3rem;
-    color: #d1ac42;
-}
-
-.header__hamburger {
-    font-size: 2rem;
-    color: #d1ac42;
 }
 
 .main {

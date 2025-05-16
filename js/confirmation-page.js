@@ -1,5 +1,8 @@
 import { createOrderItem } from '../components/order-item.js';
 import { createActionButton } from '../components/action-button.js';
+import { navbar } from "../components/navbar.js";
+
+document.body.prepend(navbar());
 import { trackEvent } from "./event-tracker.js";
 import { createBreadcrumb } from '../components/breadcrumbs.js';
 

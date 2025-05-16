@@ -1,0 +1,28 @@
+.aboutPageDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.aboutPageDiv__aboutText {
+    max-width: 40rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+.aboutPageDiv__imgDiv {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.aboutPageDiv__img {
+    width: 12rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}

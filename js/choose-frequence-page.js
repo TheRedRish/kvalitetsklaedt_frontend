@@ -1,6 +1,9 @@
 import { createFrequenceCard } from '../components/frequence-card.js';
 import { createActionButton } from '../components/action-button.js';
+import { navbar } from "../components/navbar.js";
 import { createBreadcrumb } from '../components/breadcrumbs.js';
+
+document.body.prepend(navbar());
 
 document.addEventListener("DOMContentLoaded", () => {
 

@@ -1,6 +1,9 @@
+import { navbar } from "../components/navbar.js";
 import { createBreadcrumb } from '../components/breadcrumbs.js';
-
 import { createActionButton } from '../components/action-button.js';
+
+document.body.prepend(navbar());
+
 
 const imageMap = {
     't-shirt': {
