@@ -20,7 +20,9 @@ const imageMap = {
     }
 };
 
-document.querySelector(".next-step").appendChild(createActionButton('Næste >', 'vaelgFrekvens.html', 'next-step__btn'));
+document.querySelector(".next-step").appendChild(
+    createActionButton('Næste >', 'vaelgFrekvens.html', 'next-step__btn')
+);
 
 let selectedProductType = sessionStorage.getItem('selectedProductType') || 't-shirt';
 let selectedSize = sessionStorage.getItem('selectedSize') || null;
@@ -140,11 +142,10 @@ sizeButtons.forEach(button => {
     });
 });
 
-nextButton.addEventListener('click', () => {
-    if (selectedSize) {
-        // MAKE GO TO NEXT PAGE LOGIC
-    } else {
-        nextButton.innerHTML = "Vælg en størrelse før du kan gå videre";
+nextButton.addEventListener('click', (e) => {
+    if (!selectedSize) {
+        e.preventDefault();
+        nextButton.innerHTML = "Vælg en størrelse ⛔️";
         nextButton.style.backgroundColor = '#c44545';
     }
 });
