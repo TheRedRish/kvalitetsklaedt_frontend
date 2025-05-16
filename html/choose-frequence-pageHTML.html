@@ -7,22 +7,25 @@
     <link rel="stylesheet" href="/css/frekvensCss.css"> <!-- hvis du bruger ekstern css -->
     <link rel="stylesheet" href="/css/styles.css"> <!-- hvis du bruger ekstern css -->
     <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/breadcrumbsStyle.css">
+
 </head>
 
 <body>
 
-<main>
-    <div class="page-intro-text">
-    <h1 id="page-intro-h1">Vælg frekvens</h1>
-    <p id="page-intro-p">Vælg hvor ofte du vil modtage tøjet</p>
+<main class="frequence-page">
+    <div class="frequence-page__intro">
+        <h1 class="frequence-page__title">Vælg frekvens</h1>
+        <p class="frequence-page__subtitle">Vælg hvor ofte du vil modtage tøjet</p>
+
+
+        <div class="frequence-page__breadcrumbs"></div>
     </div>
-    <img src="/assets/images/Billede%20af%20breadcrumbs.png" alt="Kalender ikon"> <!-- DETTE ER BLOT FOR VISUALS-->
-    <div class="frequence-cards"></div>
+
+    <div class="frequence-page__cards"></div>
 </main>
 
-<div class="button-container">
-    <a href="#">Gå til betaling</a>
-</div>
+<div class="confirmation-actions" id="confirm-actions"></div>
 
 <script type="module" src="../js/choose-frequence-page.js"></script>
 </body>

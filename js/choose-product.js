@@ -1,8 +1,9 @@
 import { navbar } from "../components/navbar.js";
+import { createBreadcrumb } from '../components/breadcrumbs.js';
+import { createActionButton } from '../components/action-button.js';
 
 document.body.prepend(navbar());
 
-import { createActionButton } from '../components/action-button.js';
 
 const imageMap = {
     't-shirt': {
@@ -22,7 +23,9 @@ const imageMap = {
     }
 };
 
-document.querySelector(".next-step").appendChild(createActionButton('Næste >', 'vaelgFrekvens.html', 'next-step__btn'));
+document.querySelector(".next-step").appendChild(
+    createActionButton('Næste >', 'vaelgFrekvens.html', 'next-step__btn')
+);
 
 let selectedProductType = sessionStorage.getItem('selectedProductType') || 't-shirt';
 let selectedSize = sessionStorage.getItem('selectedSize') || null;
@@ -142,13 +145,20 @@ sizeButtons.forEach(button => {
     });
 });
 
-nextButton.addEventListener('click', () => {
-    if (selectedSize) {
-        // MAKE GO TO NEXT PAGE LOGIC
-    } else {
-        nextButton.innerHTML = "Vælg en størrelse før du kan gå videre";
+nextButton.addEventListener('click', (e) => {
+    if (!selectedSize) {
+        e.preventDefault();
+        nextButton.innerHTML = "Vælg en størrelse ⛔️";
         nextButton.style.backgroundColor = '#c44545';
     }
 });
 
 updateColorOptions(selectedProductType);
+
+const breadcrumbContainer  = document.querySelector(".frequence-page__breadcrumbs");
+if (breadcrumbContainer ) {
+    breadcrumbContainer .appendChild(createBreadcrumb(1));
+} else {
+    console.warn("❗ .frequence-page__breadcrumbs not found");
+}
+
