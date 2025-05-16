@@ -4,7 +4,7 @@ export function createBreadcrumb(activeStep = 1) {
 
     const steps = [
         {number: 1, label: "Vælg pakke", url: "./choose-product.html"}, // Til roden
-        {number: 2, label: "Frekvens", url: "./choose-frequence-pageHTML.html"}, // Samme mappe
+        {number: 2, label: "Frekvens", url: "./choose-frequence-page.html"}, // Samme mappe
         {number: 3, label: "Bekræft", url: "./confirmation-page.html"}
     ];
     steps.forEach((step, index) => {

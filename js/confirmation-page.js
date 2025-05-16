@@ -10,9 +10,8 @@ summary.appendChild(createOrderItem("../assets/images/kalenderIkon.png", "Hvert 
 
 const actions = document.getElementById("confirm-actions");
 
-actions.appendChild(createActionButton("<", "./vaelgFrekvens.html", "button--back"));
-actions.appendChild(createActionButton("Gå til betaling >", "newsletter-signup.html", "button--confirm"));
-
+actions.appendChild(createActionButton("<", "./choose-frequence-page.html", "button--back"));
+actions.appendChild(createActionButton("Gå til betaling >", "confirmation-success.html", "button--confirm"));
 
 
 const breadcrumbContainer = document.querySelector(".frequence-page__breadcrumbs");
