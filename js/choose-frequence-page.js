@@ -34,5 +34,5 @@ cardsData.forEach(card => {
 
 
 const actions = document.querySelector(".confirmation-actions");
-actions.appendChild(createActionButton("<", "index.html", "button--back"));
+actions.appendChild(createActionButton("<", "choose-product.html", "button--back"));
 actions.appendChild(createActionButton("Næste >", "./confirmation-page.html", "button--confirm"));
