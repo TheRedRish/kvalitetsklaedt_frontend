@@ -20,7 +20,7 @@ const imageMap = {
     }
 };
 
-document.querySelector(".next-step").appendChild(createActionButton('Næste >', 'vaelgFrekvens.html', 'next-step__btn'));
+document.querySelector(".next-step").appendChild(createActionButton('Næste >', 'choose-frequence-page.html', 'next-step__btn'));
 
 let selectedProductType = sessionStorage.getItem('selectedProductType') || 't-shirt';
 let selectedSize = sessionStorage.getItem('selectedSize') || null;
