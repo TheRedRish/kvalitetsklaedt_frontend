@@ -1,4 +1,4 @@
-body {
+html, body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     background: #0d0f18;
@@ -56,6 +56,10 @@ body {
 .summary__item-icon {
     width: 75px;
     height: 75px;
+}
+
+.summary__item span {
+    font-size: x-large;
 }
 
 .confirmation__actions {
