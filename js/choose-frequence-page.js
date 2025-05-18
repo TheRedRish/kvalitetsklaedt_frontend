@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const actions = document.querySelector(".confirmation-actions");
     if (actions) {
         actions.appendChild(createActionButton("<", "choose-product.html", "button--back"));
-        actions.appendChild(createActionButton("Næste >", "./confirmation-page.html", "button--confirm"));
+        actions.appendChild(createActionButton("Næste", "./confirmation-page.html", "button--confirm"));
     } else {
         console.warn("❗ .confirmation-actions not found");
     }

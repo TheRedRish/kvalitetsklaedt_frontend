@@ -24,21 +24,24 @@ const imageMap = {
 };
 
 document.querySelector(".next-step").appendChild(
-    createActionButton('Næste >', 'choose-frequence-page.html', 'next-step__btn')
+    createActionButton('Næste', 'choose-frequence-page.html', 'next-step__btn')
 );
 
-if (!sessionStorage.getItem('selectedProductType')) {
-    sessionStorage.setItem('selectedProductType', 't-shirt');
+if (!sessionStorage.getItem('orderSummary')) {
+    // Setting default values, selected type only attribute to get a default value, per user story requirements
+    sessionStorage.setItem('orderSummary', JSON.stringify({selectedProductType: 't-shirt', selectedSize: null, selectedColor: null}));
 }
 
-let selectedProductType = sessionStorage.getItem('selectedProductType');
-let selectedSize = sessionStorage.getItem('selectedSize') || null;
-let selectedColor = sessionStorage.getItem('selected_color') || null;
+let orderSummary = JSON.parse(sessionStorage.getItem('orderSummary'));
 
 const previewImg = document.querySelector('.product-config__preview-img');
 const colorContainer = document.getElementById('color-options');
 const nextButton = document.querySelector('.next-step__btn');
 const sizeButtons = document.querySelectorAll('#size-options .product-config__circle-btn');
+
+function updateOrderSummary() {
+    sessionStorage.setItem('orderSummary', JSON.stringify(orderSummary));
+}
 
 function updateColorOptions(type) {
     colorContainer.innerHTML = '';
@@ -55,7 +58,7 @@ function updateColorOptions(type) {
         box.appendChild(img);
         box.append(color);
 
-        if (color === selectedColor) {
+        if (color === orderSummary.selectedColor) {
             box.classList.add('product-config__option-box--selected');
             previewImg.src = imageMap[type][color];
         }
@@ -69,14 +72,12 @@ function updateColorOptions(type) {
             box.classList.add('product-config__option-box--selected');
             previewImg.src = box.dataset.img;
 
-            selectedColor = color;
-            sessionStorage.setItem('selected_color', color);
+            orderSummary.selectedColor = color;
+            updateOrderSummary();
         });
 
         colorContainer.appendChild(box);
     }
-
-    sessionStorage.setItem('selected_color', selectedColor);
 }
 
 
@@ -89,17 +90,16 @@ document.querySelectorAll('.product-config__options .product-config__option-box'
 
         option.classList.add('product-config__option-box--selected');
 
-        selectedProductType = option.id;
-        sessionStorage.setItem('selectedProductType', selectedProductType);
+        orderSummary.selectedProductType = option.id
 
         const img = option.querySelector('img');
         if (img) {
             previewImg.src = img.src;
-            selectedColor = getColorByImageSrc(img.src, selectedProductType);
-            sessionStorage.setItem('selected_color', selectedColor);
+            orderSummary.selectedColor = getColorByImageSrc(img.src, orderSummary.selectedProductType);
         }
 
-        updateColorOptions(selectedProductType);
+        updateColorOptions(orderSummary.selectedProductType);
+        updateOrderSummary();
     });
 });
 
@@ -119,19 +119,19 @@ function getColorByImageSrc(src, type) {
 
 
 document.querySelectorAll('.product-config__options .product-config__option-box').forEach(box => {
-    if (box.id === selectedProductType) {
+    if (box.id === orderSummary.selectedProductType) {
         box.classList.add('product-config__option-box--selected');
     }
 });
 
-if (selectedSize) {
+if (orderSummary.selectedSize) {
     sizeButtons.forEach(button => {
-        if (button.textContent.trim() === selectedSize) {
+        if (button.textContent.trim() === orderSummary.selectedSize) {
             button.classList.add('product-config__circle-btn--active');
         }
     });
     nextButton.innerHTML = "Næste";
-    nextButton.style.backgroundColor = '#d1ac42';
+    nextButton.style.backgroundColor = 'var(--gold)';
 }
 
 sizeButtons.forEach(button => {
@@ -141,8 +141,8 @@ sizeButtons.forEach(button => {
         );
         button.classList.add('product-config__circle-btn--active');
 
-        selectedSize = button.textContent.trim();
-        sessionStorage.setItem('selectedSize', selectedSize);
+        orderSummary.selectedSize = button.textContent.trim();
+        updateOrderSummary();
 
         nextButton.innerHTML = "Næste";
         nextButton.style.backgroundColor = 'var(--gold)';
@@ -151,7 +151,7 @@ sizeButtons.forEach(button => {
 
 
 nextButton.addEventListener('click', (e) => {
-    if (!selectedSize) {
+    if (!orderSummary.selectedSize) {
         e.preventDefault();
         nextButton.innerHTML = "Vælg en størrelse ⛔️";
 
@@ -159,7 +159,7 @@ nextButton.addEventListener('click', (e) => {
     }
 });
 
-updateColorOptions(selectedProductType);
+updateColorOptions(orderSummary.selectedProductType);
 
 const breadcrumbContainer  = document.querySelector(".frequence-page__breadcrumbs");
 if (breadcrumbContainer ) {
