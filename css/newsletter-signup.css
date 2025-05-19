@@ -1,14 +1,15 @@
 html, body {
+    height: 100vh;
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #0d0f18;
-    color: white;
-    height: 100%;
+    padding: 0;
+    background-color: var(--blue);
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
     display: flex;
     flex-direction: column;
 }
 
-.newsletter-signup__content{
+.newsletter-signup__content {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -59,7 +60,7 @@ html, body {
     font-size: 4rem;
 }
 
-.newsletter-signup__actions{
+.newsletter-signup__actions {
     margin-top: auto;
     display: flex;
     gap: 0.5rem;
@@ -76,6 +77,4 @@ html, body {
     margin-top: 3rem;
     font-size: 3.5rem;
     border-radius: 2rem;
-
 }
-

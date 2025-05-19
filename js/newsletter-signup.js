@@ -19,9 +19,31 @@ newsletterSubscriptionButton.addEventListener("click", async (e) => {
         return;
     }
 
-    const data = {
+    const payload = {
         email: email,
         feedback: feedback,
-        typeOfFeedback: "general"
+        typeOfFeedback: "GENERAL_FEEDBACK",
+        productSize: null
     };
+
+    try {
+        const response = await fetch("http://localhost:8080/api/customers", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            throw new Error("Fejl ved oprettelse");
+        }
+
+        const result = await response.text();
+        console.log("Succes:", result);
+        alert("Tak for din tilmelding!");
+    } catch (error) {
+        console.error("Fejl:", error);
+        alert("Noget gik galt. Prøv igen.");
+    }
 });
