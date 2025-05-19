@@ -2,27 +2,84 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
-    gap: 2rem;
+    padding: 1rem;
+    gap: 1.5rem;
 }
 
 .aboutPageDiv__aboutText {
-    max-width: 40rem;
+    max-width: 100%;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.6;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
 }
 
 .aboutPageDiv__imgDiv {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
+}
+
+.aboutPageDiv__imgWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1 1 100%;
+    max-width: 15rem;
 }
 
 .aboutPageDiv__img {
-    width: 12rem;
+    width: 100%;
+    max-width: 12rem;
+    height: auto;
     border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    background-color: transparent;
+}
+
+.aboutPageDiv__imgText {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: left;
+    width: 100%;
+    max-width: 12rem;
+    padding: 0.75rem;
+    border-top: 1px solid var(--gold);
+    color: var(--white);
+    font-weight: 400;
+}
+
+@media (min-width: 600px) {
+    .aboutPageDiv {
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .aboutPageDiv__aboutText {
+        max-width: 40rem;
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .aboutPageDiv__imgDiv {
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .aboutPageDiv__imgWrapper {
+        flex: 0 0 auto;
+        max-width: 12rem;
+    }
+
+    .aboutPageDiv__img {
+        width: 12rem;
+        height: 15rem;
+    }
+
+    .aboutPageDiv__imgText {
+        max-width: 12rem;
+    }
 }
