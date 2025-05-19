@@ -14,7 +14,7 @@
 .about-page__text {
     max-width: 40rem;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     padding: 1rem;
 }
@@ -34,8 +34,8 @@
 }
 
 .about-page__product-img {
-    width: 12rem;
-    height: 15rem;
+    width: 17rem;
+    height: 19rem;
     border-radius: 1rem;
     background-color: transparent;
 }
@@ -45,7 +45,7 @@
     font-size: 1rem;
     line-height: 1.5;
     text-align: left;
-    width: 12rem;
+    width: 16rem;
     padding: 0.75rem;
     border-top: 1px solid var(--gold);
     color: var(--white);
