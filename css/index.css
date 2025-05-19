@@ -129,7 +129,7 @@
 }
 
 .product-config__circle-btn--active {
-    background-color: #d1ac42;
+    background-color: var(--gold);
     color: #0c111b;
 }
 

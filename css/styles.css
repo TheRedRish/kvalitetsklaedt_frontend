@@ -14,12 +14,13 @@
     box-sizing: border-box;
 }
 
-body {
+body,html {
     margin: 0;
     padding: 0;
     background-color: var(--blue);
     color: var(--white);
     font-family: 'Playfair Display', serif;
+    height: 100%;
 }
 
 header{

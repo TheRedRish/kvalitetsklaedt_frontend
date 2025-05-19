@@ -18,8 +18,11 @@ export function createFrequenceCard({ title, description, imageUrl, extraClass =
 
     link.addEventListener("click", (e) => {
         e.preventDefault();
-        sessionStorage.setItem("frekvens", title);
-        console.log("Frekvens valgt:", title);
+
+        const orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || {};
+
+        orderSummary.frequency = title;
+        sessionStorage.setItem('orderSummary', JSON.stringify(orderSummary));
 
         document.querySelectorAll(".frequence-card.selected").forEach(el => el.classList.remove("selected"));
         section.classList.add("selected");
