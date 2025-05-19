@@ -1,85 +1,80 @@
-.aboutPageDiv {
+.about-page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
-    gap: 1.5rem;
+    padding: 2rem;
+    gap: 2rem;
 }
 
-.aboutPageDiv__aboutText {
-    max-width: 100%;
+.about-page__title {
+    font-size: 2rem;
     text-align: center;
-    font-size: 1rem;
-    line-height: 1.6;
-    padding: 0.5rem 1rem;
 }
 
-.aboutPageDiv__imgDiv {
+.about-page__text {
+    max-width: 40rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+.about-page__products {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
 }
 
-.aboutPageDiv__imgWrapper {
+.about-page__product {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    flex: 1 1 100%; /* Fuld bredde på små skærme */
-    max-width: 15rem;
 }
 
-.aboutPageDiv__img {
-    width: 100%;
-    max-width: 12rem;
-    height: auto;
+.about-page__product-img {
+    width: 12rem;
+    height: 15rem;
     border-radius: 1rem;
     background-color: transparent;
 }
 
-.aboutPageDiv__imgText {
-    margin-top: 0.5rem;
+.about-page__product-info {
+    margin-top: 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
     text-align: left;
-    width: 100%;
-    max-width: 12rem;
+    width: 12rem;
     padding: 0.75rem;
     border-top: 1px solid var(--gold);
     color: var(--white);
     font-weight: 400;
 }
 
-@media (min-width: 600px) {
-    .aboutPageDiv {
-        padding: 2rem;
-        gap: 2rem;
+/* Gør mobilvenlig */
+@media (max-width: 480px) {
+    .about-page__product-img {
+        width: 100%;
+        height: auto;
     }
 
-    .aboutPageDiv__aboutText {
-        max-width: 40rem;
-        font-size: 1.1rem;
-        padding: 1rem;
+    .about-page__product-info {
+        width: 100%;
+        text-align: center;
     }
 
-    .aboutPageDiv__imgDiv {
-        gap: 2rem;
-        justify-content: center;
+    .about-page__products {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .aboutPageDiv__imgWrapper {
-        flex: 0 0 auto;
-        max-width: 12rem;
+    .about-page__text {
+        font-size: 1rem;
+        padding: 0.5rem;
     }
 
-    .aboutPageDiv__img {
-        width: 12rem;
-        height: 15rem;
-    }
-
-    .aboutPageDiv__imgText {
-        max-width: 12rem;
+    .about-page__title {
+        font-size: 1.5rem;
     }
 }
