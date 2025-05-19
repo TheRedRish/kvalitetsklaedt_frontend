@@ -11,6 +11,7 @@
     flex-direction: column;
     align-items: center;
     color: white;
+    width: 75px;
 }
 
 .breadcrumbs__circle {
