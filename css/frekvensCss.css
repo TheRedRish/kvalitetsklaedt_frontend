@@ -68,8 +68,13 @@ a {
 }
 
 .frequence-card__content:hover {
-    border-color: #D6B46A;
-    box-shadow: 0 0 0 2px #D6B46A;
+    border-color: var(--goldHover);
+    box-shadow: 0 0 0 2px var(--goldHover);
+}
+
+.frequence-card__content.selected {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px var(--gold);
 }
 
 .frequence-card__image {
