@@ -16,7 +16,7 @@ export function createBreadcrumb(activeStep = 1) {
         let stepWrapperInnerHTML = ``;
 
         if (!isActive) {
-            stepWrapperInnerHTML = `<a href=\"${step.url}\" className=\"breadcrumbs__link\">`;
+            stepWrapperInnerHTML = `<a href=\"${step.url}\" class=\"breadcrumbs__link\">`;
         }
 
         stepWrapperInnerHTML += `<div class="breadcrumbs__circle">${step.number}</div>

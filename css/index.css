@@ -78,6 +78,7 @@
 }
 
 .product-config__colors {
+
     grid-area: colors;
     display: flex;
     justify-content: right;

@@ -67,9 +67,10 @@ a {
     transition: box-shadow 0.3s, border-color 0.3s;
 }
 
-.frequence-card__content:hover {
-    border-color: #D6B46A;
-    box-shadow: 0 0 0 2px #D6B46A;
+
+.frequence-card__content.selected {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px var(--gold);
 }
 
 .frequence-card__image {
