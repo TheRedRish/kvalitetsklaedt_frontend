@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const cardsData = [
             {
                 title: "Hvert kvartal",
-                description: "Opdatér garderoben",
+                description: "Opdatér garderoben hver kvartal",
                 imageUrl: "/assets/images/kalenderIkon.png",
                 extraClass: "frequence-card--kvartal"
             },
