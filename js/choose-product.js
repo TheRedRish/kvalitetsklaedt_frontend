@@ -1,6 +1,7 @@
 import { navbar } from "../components/navbar.js";
 import { createBreadcrumb } from '../components/breadcrumbs.js';
 import { createActionButton } from '../components/action-button.js';
+import {sizingGuide, sizingGuideModule} from '../components/sizingGuide.js';
 
 document.body.prepend(navbar());
 
@@ -164,7 +165,7 @@ updateColorOptions(orderSummary.selectedProductType);
 const breadcrumbContainer  = document.querySelector(".frequence-page__breadcrumbs");
 if (breadcrumbContainer ) {
     breadcrumbContainer .appendChild(createBreadcrumb(1));
-} else {
-    console.warn("❗ .frequence-page__breadcrumbs not found");
 }
 
+sizingGuide();
+sizingGuideModule();
