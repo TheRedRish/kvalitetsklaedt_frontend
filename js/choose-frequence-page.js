@@ -34,8 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const cardElement = createFrequenceCard(card);
             container.appendChild(cardElement);
         });
-    } else {
-        console.warn("❗ .frequence-page__cards not found");
     }
 
 
@@ -53,16 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 nextButton.style.backgroundColor = '#c44545';
             }
         })
-    } else {
-        console.warn("❗ .confirmation-actions not found");
     }
-
 
     const breadcrumbContainer = document.querySelector(".frequence-page__breadcrumbs");
     if (breadcrumbContainer) {
         breadcrumbContainer.appendChild(createBreadcrumb(2));
-    } else {
-        console.warn("❗ .frequence-page__breadcrumbs not found");
     }
 
 });

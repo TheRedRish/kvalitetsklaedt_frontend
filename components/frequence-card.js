@@ -27,7 +27,6 @@ export function createFrequenceCard({ title, description, imageUrl, extraClass =
     link.addEventListener("click", (e) => {
         e.preventDefault();
 
-        // Getting updated orderSummary
         const orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || {};
 
         orderSummary.frequency = title;
