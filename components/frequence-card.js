@@ -2,6 +2,11 @@ export function createFrequenceCard({ title, description, imageUrl, extraClass =
     const section = document.createElement("section");
     section.className = `frequence-card ${extraClass}`.trim();
 
+    const orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || {};
+    if (orderSummary.frequency === title) {
+        section.classList.add("selected");
+    }
+
     const link = document.createElement("a");
     link.href = "#";
     link.dataset.frekvens = title;

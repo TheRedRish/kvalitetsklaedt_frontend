@@ -1,24 +1,5 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #0D111A;
-    font-family: 'Georgia', serif;
-    color: white;
-    text-align: center;
-}
-
-a {
-    text-decoration: none;
-}
-
-.header {
+main {
     padding: 1rem;
-    background-color: #0D111A;
-    color: white;
-}
-
-.header__nav-placeholder {
-
 }
 
 .frequence-page__intro {
@@ -51,7 +32,6 @@ a {
 
 .frequence-card {
     margin: 0.3rem auto;
-    max-width: 90%;
     width: 100%;
 }
 
@@ -75,7 +55,6 @@ a {
 .frequence-card__image {
     width: 90px;
     height: 90px;
-    margin-left: 0.5rem;
 }
 
 .frequence-card__title {
@@ -111,6 +90,19 @@ a {
     gap: 0.5rem;
     justify-content: space-between;
     align-items: center;
-    max-width: 90%;
-    margin-left: 5%;
+}
+
+@media (max-width: 480px) {
+    main {
+        display:flex;
+        flex-direction: column;
+        flex: 1;
+    }
+}
+
+@media (max-height: 700px) {
+    .frequence-card__image {
+        width: 65px;
+        height: 65px;
+    }
 }

@@ -41,8 +41,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const actions = document.querySelector(".confirmation-actions");
     if (actions) {
+        const nextButton = createActionButton("Næste", "./confirmation-page.html", "button--confirm");
         actions.appendChild(createActionButton("<", "choose-product.html", "button--back"));
-        actions.appendChild(createActionButton("Næste", "./confirmation-page.html", "button--confirm"));
+        actions.appendChild(nextButton);
+
+        nextButton.addEventListener("click", (e) => {
+            if (!checkOrderSummary()) {
+                e.preventDefault();
+                nextButton.innerHTML = "Vælg en frekvens ⛔️";
+
+                nextButton.style.backgroundColor = '#c44545';
+            }
+        })
     } else {
         console.warn("❗ .confirmation-actions not found");
     }
@@ -56,3 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+function checkOrderSummary() {
+    const orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || {};
+    return (orderSummary !== null && typeof orderSummary.frequency == "string")
+}
