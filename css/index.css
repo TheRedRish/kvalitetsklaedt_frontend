@@ -60,6 +60,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .product-config__preview-img {
@@ -77,6 +78,7 @@
 }
 
 .product-config__colors {
+
     grid-area: colors;
     display: flex;
     justify-content: right;
@@ -154,6 +156,91 @@
         margin-top: 0.3rem;
         margin-bottom: 0.5rem;
     }
+}
+
+.preview-container {
+    position: relative;
+    display: inline-block;
+}
+
+.infoToolTip {
+    position: absolute;
+    bottom: 1.3rem;
+    right: 0.0rem;
+    width: 2.7rem;
+    height: 2.7rem;
+    cursor: pointer;
+}
+
+.infoToolTipModule {
+    width: 22rem;
+    height: 20rem;
+    background-color: var(--blue);
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.infoToolTipModule__close-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.infoToolTipModule__close-btn svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.infoToolTipModule__content {
+    height: calc(100% - 2.5rem);
+    overflow-y: auto;
+}
+
+.infoToolTipModule__size-guide-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.infoToolTipModule__size-guide-table th,
+.infoToolTipModule__size-guide-table td {
+    padding: 0.4rem;
+    border-bottom: 1px solid #444;
+    text-align: left;
+}
+
+.infoToolTipModule__aTag  {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.infoToolTipModule__content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.infoToolTipModule__content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.infoToolTipModule__content::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.infoToolTipModule__content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) transparent;
 }
 
 @media (max-width: 480px) {

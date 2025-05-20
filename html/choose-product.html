@@ -13,8 +13,11 @@
 <body>
 
 <main class="main">
-    <h1 class="main__title">Abonner på basistøj til mænd</h1>
-    <p class="main__description">Stilfuldt basistøj. Leveret diskret. <br>Uden besvær</p>
+    <h1 class="main__title">Kvalitetstøj til mænd – på abonnement</h1>
+    <p class="main__description">Sæsonbaseret tøj i høj kvalitet <br> udvalgt og leveret direkte til døren.</p>
+
+    <div id="infoToolTipModule" class="infoToolTipModule"></div>
+
 
     <div class="frequence-page__breadcrumbs"></div>
 
@@ -22,22 +25,26 @@
         <div class="product-config__options">
             <div class="product-config__option-box" id="t-shirt" data-type="T-Shirt">
                 <img class="product-config__option-box-img" src="../assets/images/t-shirt.png" alt="T-Shirt"/>
-                T-Shirt
+                T-Shirt<br>Pakken
             </div>
             <div class="product-config__option-box" id="hoodie" data-type="Hoodie">
                 <img class="product-config__option-box-img" src="../assets/images/hoodie-sort.png" alt="Hoodie"/>
-                Hoodie
+                Hoodie<br>Pakken
             </div>
             <div class="product-config__option-box" id="shirt" data-type="Skjorte">
                 <img class="product-config__option-box-img" src="../assets/images/shirt-navy.png" alt="Skjorte"/>
-                Skjorte
+                Skjorte<br>Pakken
             </div>
         </div>
 
         <div class="product-config__preview">
-            <img id="preview-img" class="product-config__preview-img" src="../assets/images/t-shirt.png" alt="Preview"/>
+            <div class="preview-container">
+                <img id="preview-img" class="product-config__preview-img" src="../assets/images/t-shirt.png" alt="Preview"/>
+                <img id="infoToolTip" class="infoToolTip" src="../assets/icons/info.svg" alt="info">
+            </div>
         </div>
 
+        <p></p>
         <div class="product-config__sizes" id="size-options">
             <div class="product-config__circle-btn" id="size-s">S</div>
             <div class="product-config__circle-btn" id="size-m">M</div>
@@ -46,7 +53,7 @@
             <div class="product-config__circle-btn" id="size-xxl">XXL</div>
             <div class="product-config__circle-btn" id="size-xxxl">XXXL</div>
         </div>
-
+        <p>Pakken indeholder ovenstående farver</p>
         <div class="product-config__colors" id="color-options">
 
 
