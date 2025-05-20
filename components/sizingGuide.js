@@ -30,17 +30,17 @@ export function sizingGuide ()  {
 
 export function sizingGuideModule () {
     document.querySelector("#infoToolTipModule").innerHTML = `
-            <button id="closeInfo" class="infoToolTipModule__close-btn" aria-label="Luk">
+            <button id="closeInfo" class="info-tooltip-module__close-btn" aria-label="Luk">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#d7be74" stroke-width="1.5" stroke-linecap="round"/>
                 <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#d7be74" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
         </button>
 
-        <div class="infoToolTipModule__content">
+        <div class="info-tooltip-module__content">
             <h1>Størrelsesguide</h1>
-            <table class="infoToolTipModule__size-guide-table">
-                <thead>
+            <table class="info-tooltip-module__size-guide-table">
+                <thead class="sizing-guide-title">
                 <tr>
                     <th>Størrelse</th>
                     <th>Bryst (cm)</th>
@@ -60,6 +60,6 @@ export function sizingGuideModule () {
             </table>
         </div>
 
-        <a class="infoToolTipModule__aTag" href="#">Avanceret størrelsesguide</a>
+        <a class="info-tooltip-module__a-Tag" href="#">Avanceret størrelsesguide</a>
     `;
 }

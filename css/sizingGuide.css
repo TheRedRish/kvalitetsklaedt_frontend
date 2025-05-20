@@ -1,0 +1,86 @@
+.sizing-guide-title{
+    position: sticky;
+    top: 0;
+    background: var(--blue);
+    z-index: 1;
+}
+
+.info-tooltip {
+    position: absolute;
+    bottom: 1.3rem;
+    right: 0.0rem;
+    width: 2.7rem;
+    height: 2.7rem;
+    cursor: pointer;
+}
+
+.info-tooltip-module {
+    width: 22rem;
+    height: 20rem;
+    background-color: var(--blue);
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.info-tooltip-module__close-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.info-tooltip-module__close-btn svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.info-tooltip-module__content {
+    height: calc(100% - 2.5rem);
+    overflow-y: auto;
+}
+
+.info-tooltip-module__size-guide-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-tooltip-module__size-guide-table th,
+.info-tooltip-module__size-guide-table td {
+    padding: 0.4rem;
+    border-bottom: 1px solid #444;
+    text-align: left;
+}
+
+.info-tooltip-module__a-Tag  {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.info-tooltip-module__content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.info-tooltip-module__content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.info-tooltip-module__content::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.info-tooltip-module__content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
