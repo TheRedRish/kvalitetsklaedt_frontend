@@ -60,6 +60,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .product-config__preview-img {
@@ -158,3 +159,9 @@
         margin-bottom: 0.5rem;
     }
 }
+
+.preview-container {
+    position: relative;
+    display: inline-block;
+}
+
