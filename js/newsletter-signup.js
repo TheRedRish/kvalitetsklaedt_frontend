@@ -64,7 +64,6 @@ newsletterSubscriptionButton.addEventListener("click", async (e) => {
         });
 
     } catch (error) {
-        console.error("Fejl:", error);
         alert("Noget gik galt. Prøv igen.");
     }
 });

@@ -16,7 +16,6 @@ html, body {
 
 .newsletter-signup__title {
     font-size: 8.0rem;
-    font-family: 'Playfair Display', serif;
     font-weight: bold;
     line-height: 1.2;
     color: var(--white);
@@ -42,7 +41,6 @@ html, body {
     background-color: transparent;
     color: var(--white);
     font-size: 4rem;
-    font-family: 'Playfair Display', serif;
     margin-top: 2rem;
     margin-bottom: 2rem;
     box-sizing: border-box;
@@ -50,7 +48,7 @@ html, body {
 }
 
 .newsletter-signup__input::placeholder {
-    color: #aaa;
+    color: var(--inputBorderColor);
     font-size: 4rem;
 }
 
@@ -142,7 +140,6 @@ html, body {
 
     .newsletter-signup__title {
         font-size: 5rem;
-        font-family: 'Playfair Display', serif;
         font-weight: bold;
         line-height: 1.2;
         color: var(--white);
@@ -167,7 +164,6 @@ html, body {
         border-radius: 1rem;
         background-color: transparent;
         color: var(--white);
-        font-family: 'Playfair Display', serif;
         margin-top: 1rem;
         margin-bottom: 1rem;
         box-sizing: border-box;
@@ -196,7 +192,7 @@ html, body {
     }
 
     .button--confirm {
-        background: #d3b36a;
+        background: var(--gold);
         color: var(--white);
         margin-top: 1rem;
         font-size: 1.5rem;
@@ -208,7 +204,7 @@ html, body {
 
     .button--confirm:hover {
         background: white;
-        color: black;
+        color: var(--black);
     }
 
 }
