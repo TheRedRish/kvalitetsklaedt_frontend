@@ -31,12 +31,9 @@ export function createFrequenceCard({ title, description, imageUrl, extraClass =
         orderSummary.frequency = title;
         sessionStorage.setItem('orderSummary', JSON.stringify(orderSummary));
 
+        document.querySelectorAll(".frequence-card.selected").forEach(el => el.classList.remove("selected"));
 
-        document.querySelectorAll(".frequence-card__content.selected").forEach(el => el.classList.remove("selected"));
-
-
-        const cardContent = section.querySelector(".frequence-card__content");
-        cardContent.classList.add("selected");
+        section.classList.add("selected");
     });
 
     section.appendChild(link);

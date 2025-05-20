@@ -48,7 +48,7 @@ main {
 }
 
 
-.frequence-card__content.selected {
+.frequence-card.selected .frequence-card__content {
     border-color: var(--gold);
     box-shadow: 0 0 0 2px var(--gold);
 }
