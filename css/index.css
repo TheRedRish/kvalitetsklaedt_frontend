@@ -60,7 +60,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /*added this line*/
+    position: relative;
 }
 
 .product-config__preview-img {
@@ -225,8 +225,6 @@
     font-weight: bold;
 }
 
-
-/* Scrollbar: */
 .infoToolTipModule__content::-webkit-scrollbar {
     width: 6px;
 }

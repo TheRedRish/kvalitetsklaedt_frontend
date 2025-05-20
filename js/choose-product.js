@@ -1,6 +1,7 @@
 import { navbar } from "../components/navbar.js";
 import { createBreadcrumb } from '../components/breadcrumbs.js';
 import { createActionButton } from '../components/action-button.js';
+import {sizingGuide, sizingGuideModule} from '../components/sizingGuide.js';
 
 document.body.prepend(navbar());
 
@@ -164,37 +165,7 @@ updateColorOptions(orderSummary.selectedProductType);
 const breadcrumbContainer  = document.querySelector(".frequence-page__breadcrumbs");
 if (breadcrumbContainer ) {
     breadcrumbContainer .appendChild(createBreadcrumb(1));
-} else {
-    console.warn("❗ .frequence-page__breadcrumbs not found");
 }
 
-//ToolTip modul til størrelsesguide
-document.addEventListener("DOMContentLoaded", () => {
-    const infoIcon = document.getElementById("infoToolTip");
-    const infoModule = document.getElementById("infoToolTipModule");
-    const closeBtn = document.getElementById("closeInfo");
-
-    infoModule.style.display = "none";
-
-    infoIcon.addEventListener("click", () => {
-        infoModule.style.display =
-            infoModule.style.display === "block" ? "none" : "block";
-    });
-
-    closeBtn.addEventListener("click", () => {
-        infoModule.style.display = "none";
-    });
-
-    document.addEventListener("click", (event) => {
-        if (infoModule.style.display === "block") {
-            if (
-                !infoModule.contains(event.target) &&
-                !infoIcon.contains(event.target)
-            ) {
-                infoModule.style.display = "none";
-            }
-        }
-    });
-});
-
-
+sizingGuide();
+sizingGuideModule();
