@@ -53,6 +53,7 @@ button, .button {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-align: center;
 }
 
 button:hover {
@@ -78,5 +79,12 @@ input, select {
 @media (max-height: 700px) {
     body, html {
         font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    body, html {
+        display: flex;
+        flex-direction: column;
     }
 }
