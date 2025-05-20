@@ -14,7 +14,10 @@
 
 <main class="main">
     <h1 class="main__title">Kvalitetstøj til mænd – på abonnement</h1>
-    <p class="main__description">Sæsonbaseret tøj i høj kvalitet <br> udvalgt og leveret direkte til døren.
+    <p class="main__description">Sæsonbaseret tøj i høj kvalitet <br> udvalgt og leveret direkte til døren.</p>
+
+    <div id="infoToolTipModule" class="infoToolTipModule"></div>
+
 
     <div class="frequence-page__breadcrumbs"></div>
 
@@ -35,9 +38,12 @@
         </div>
 
         <div class="product-config__preview">
-            <img id="preview-img" class="product-config__preview-img" src="../assets/images/t-shirt.png" alt="Preview"/>
-
+            <div class="preview-container">
+                <img id="preview-img" class="product-config__preview-img" src="../assets/images/t-shirt.png" alt="Preview"/>
+                <img id="infoToolTip" class="infoToolTip" src="../assets/icons/info.svg" alt="info">
+            </div>
         </div>
+
         <p></p>
         <div class="product-config__sizes" id="size-options">
             <div class="product-config__circle-btn" id="size-s">S</div>
