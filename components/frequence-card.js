@@ -2,8 +2,9 @@ export function createFrequenceCard({ title, description, imageUrl, extraClass =
     const section = document.createElement("section");
     section.className = `frequence-card ${extraClass}`.trim();
 
-    const orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || {};
-    if (orderSummary.frequency === title) {
+    // orderSummary is only allowed to be null here, because it is not used anywhere else.
+    const orderSummary = JSON.parse(sessionStorage.getItem('orderSummary'));
+    if (orderSummary !== null && orderSummary.frequency === title) {
         section.classList.add("selected");
     }
 
@@ -26,6 +27,7 @@ export function createFrequenceCard({ title, description, imageUrl, extraClass =
     link.addEventListener("click", (e) => {
         e.preventDefault();
 
+        // Getting updated orderSummary
         const orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || {};
 
         orderSummary.frequency = title;
