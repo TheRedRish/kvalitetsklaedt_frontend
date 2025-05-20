@@ -5,20 +5,36 @@
     <title>Nyhedsbrev tilmelding</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="../css/newsletter-signup.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+
 
 </head>
 <body>
-<img class="confirmation__header" src="../assets/images/header_temp.png" alt="Header">
+
 <main class="newsletter-signup__main">
     <section class="newsletter-signup__content">
-        <h1 class="newsletter-signup__title">Tak for din <br> interesse</h1>
-        <p class="newsletter-signup__text">Tilmeld dig vores nyhedsbrev og vær blandt de første til at få besked, når vi lancerer. <br> <br> Vi starter ikke virksomheden, medmindre vi ser interesse i betalingsservice</p>
+        <div class="newsletter-signup__text-container">
+            <h1 class="newsletter-signup__title">Tak for din <br> interesse</h1>
+            <p class="newsletter-signup__text">Tilmeld dig vores nyhedsbrev og vær blandt de første til at få besked,
+                når vi lancerer. <br> <br> Vi starter ikke virksomheden, medmindre vi ser interesse i betalingsservice
+            </p>
+        </div>
 
-        <div id="input-container" class="newsletter-signup__container">
-            <input class="newsletter-signup__input" type="text" id="input-feedback" placeholder="Feedback">
+        <div id="newsletter-signup-actions" class="newsletter-signup__actions">
+<!--            <input class="newsletter-signup__input" type="" id="input-feedback" placeholder="Feedback">-->
+            <textarea class="newsletter-signup__input" id="input-feedback" placeholder="Feedback"></textarea>
             <input class="newsletter-signup__input" id="input-email" type="email" placeholder="E-mail">
         </div>
-        <div id="newsletter-signup-actions" class="newsletter-signup__actions"></div>
+
+        <div class="newsletter-signup__modal" id="success-modal" style="display: none;">
+            <button class="newsletter-signup__modal-close-btn" id="succes-modal-button">X</button>
+            <h1 class="newsletter-signup__title">Du er nu med på rejsen</h1>
+            <p class="newsletter-signup__text">
+                Vi har sendt dig en bekræftelsesmail og du kan lukke dette vindue nu.
+                Hvis du ønsker at læse mere om os kan du <a href="aboutPage.html">klikke her</a>.
+                Vi glæder os til at have dig med!
+            </p>
+        </div>
     </section>
 </main>
 

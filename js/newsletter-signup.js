@@ -1,4 +1,7 @@
-import { createActionButton } from "../components/action-button.js";
+import {createActionButton} from "../components/action-button.js";
+import {navbar} from "../components/navbar.js";
+
+document.body.prepend(navbar());
 
 const actionDiv = document.getElementById('newsletter-signup-actions');
 const newsletterSubscriptionButton = createActionButton("Tilmeld nyhedsbrev", "#", "button--confirm");
@@ -18,6 +21,19 @@ newsletterSubscriptionButton.addEventListener("click", async (e) => {
         alert("Udfyld venligst din e-mail");
         return;
     }
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    emailInput.classList.remove("input--error");
+
+    if (!isValidEmail) {
+        emailInput.classList.add("input--error");
+
+        setTimeout(() => {
+            emailInput.classList.remove("input--error");
+        }, 400);
+
+        return;
+    }
 
     const payload = {
         email: email,
@@ -27,7 +43,7 @@ newsletterSubscriptionButton.addEventListener("click", async (e) => {
     };
 
     try {
-        const response = await fetch("http://localhost:8080/api/customers", {
+        const response = await fetch("http://localhost:8080/api/customers/subscribe-feedback", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -39,9 +55,14 @@ newsletterSubscriptionButton.addEventListener("click", async (e) => {
             throw new Error("Fejl ved oprettelse");
         }
 
-        const result = await response.text();
-        console.log("Succes:", result);
-        alert("Tak for din tilmelding!");
+        const succesModal = document.getElementById("success-modal");
+        succesModal.style.display = "block";
+
+        const succesModalButton = document.getElementById("succes-modal-button");
+        succesModalButton.addEventListener("click", () => {
+            succesModal.style.display = "none";
+        });
+
     } catch (error) {
         console.error("Fejl:", error);
         alert("Noget gik galt. Prøv igen.");
