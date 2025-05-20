@@ -145,8 +145,6 @@
     width: 100%;
 }
 
-
-
 @media (min-width: 572px) {
     .product-config__colors {
         grid-area: colors;
@@ -165,3 +163,14 @@
     display: inline-block;
 }
 
+
+@media (max-width: 480px) {
+    main {
+        display:flex;
+        flex-direction: column;
+        flex: 1;
+    }
+    .next-step {
+        margin-top: auto;
+    }
+}
