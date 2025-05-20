@@ -60,6 +60,6 @@ export function sizingGuideModule () {
             </table>
         </div>
 
-        <a class="info-tooltip-module__a-Tag" href="#">Avanceret størrelsesguide</a>
+        <a class="info-tooltip-module__a-Tag" href="../html/advancedSizingPage.html">Avanceret størrelsesguide</a>
     `;
 }
