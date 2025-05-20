@@ -62,7 +62,7 @@ html, body {
 }
 
 .button--confirm {
-    background: #d3b36a;
+    background: var(--gold);
     color: var(--white);
     flex: 3;
     margin-top: 3rem;
@@ -171,7 +171,7 @@ html, body {
     }
 
     .newsletter-signup__input::placeholder {
-        color: #aaa;
+        color: var(--inputBorderColor);
         font-size: 1.5rem;
     }
 
@@ -203,7 +203,7 @@ html, body {
     }
 
     .button--confirm:hover {
-        background: white;
+        background: var(--white);
         color: var(--black);
     }
 
