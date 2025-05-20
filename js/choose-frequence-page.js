@@ -34,25 +34,33 @@ document.addEventListener("DOMContentLoaded", () => {
             const cardElement = createFrequenceCard(card);
             container.appendChild(cardElement);
         });
-    } else {
-        console.warn("❗ .frequence-page__cards not found");
     }
 
 
     const actions = document.querySelector(".confirmation-actions");
     if (actions) {
+        const nextButton = createActionButton("Næste", "./confirmation-page.html", "button--confirm");
         actions.appendChild(createActionButton("<", "choose-product.html", "button--back"));
-        actions.appendChild(createActionButton("Næste", "./confirmation-page.html", "button--confirm"));
-    } else {
-        console.warn("❗ .confirmation-actions not found");
-    }
+        actions.appendChild(nextButton);
 
+        nextButton.addEventListener("click", (e) => {
+            if (!checkOrderSummary()) {
+                e.preventDefault();
+                nextButton.innerHTML = "Vælg en frekvens ⛔️";
+
+                nextButton.style.backgroundColor = '#c44545';
+            }
+        })
+    }
 
     const breadcrumbContainer = document.querySelector(".frequence-page__breadcrumbs");
     if (breadcrumbContainer) {
         breadcrumbContainer.appendChild(createBreadcrumb(2));
-    } else {
-        console.warn("❗ .frequence-page__breadcrumbs not found");
     }
 
 });
+
+function checkOrderSummary() {
+    const orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || {};
+    return (orderSummary !== null && typeof orderSummary.frequency == "string")
+}

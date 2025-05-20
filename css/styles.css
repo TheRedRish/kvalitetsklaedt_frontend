@@ -21,11 +21,11 @@ body,html {
     color: var(--white);
     font-family: 'Playfair Display', serif;
     height: 100%;
+    text-align: center;
 }
 
 header{
-    background-color: #0f171f;
-    height: 6rem;
+    background-color: var(--blue);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,6 +54,7 @@ button, .button {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-align: center;
 }
 
 button:hover {
@@ -76,3 +77,15 @@ input, select {
 .mt-1 { margin-top: 1em; }
 .mb-1 { margin-bottom: 1em; }
 
+@media (max-height: 700px) {
+    body, html {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    body, html {
+        display: flex;
+        flex-direction: column;
+    }
+}
