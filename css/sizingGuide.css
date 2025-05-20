@@ -15,8 +15,8 @@
 }
 
 .info-tooltip-module {
-    width: 22rem;
-    height: 20rem;
+    width: 80%;
+    height: 40%;
     background-color: var(--blue);
     color: white;
     position: fixed;
