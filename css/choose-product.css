@@ -174,3 +174,25 @@
         margin-top: auto;
     }
 }
+
+.slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(19,26,36,0.6);
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 10;
+}
+.slider-arrow--left  { left: 0.5rem; }
+.slider-arrow--right { right: 0.5rem; }

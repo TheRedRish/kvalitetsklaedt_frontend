@@ -33,14 +33,15 @@ main {
 .frequence-card {
     margin: 0.3rem auto;
     width: 100%;
+
 }
 
 .frequence-card__content {
     background-color: #131A24;
     border: 1px solid #3E3E3E;
     border-radius: 12px;
-    padding: 1rem;
-    margin-bottom: 1rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.6rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -54,8 +55,8 @@ main {
 }
 
 .frequence-card__image {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
 }
 
 .frequence-card__title {

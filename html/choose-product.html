@@ -3,50 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../assets/icons/hanger.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>KvalitetsKlædt - Vælg tøjtype</title>
+
+    <!-- Your existing styles -->
     <link rel="stylesheet" href="../css/choose-product.css"/>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/breadcrumbsStyle.css">
     <link rel="stylesheet" href="../css/sizingGuide.css">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>KvalitetsKlædt - Vælg tøjtype</title>
+
 </head>
 <body>
 
 <main class="main">
-    <h1 class="main__title">Kvalitetstøj til mænd – på abonnement</h1>
-    <p class="main__description">Sæsonbaseret tøj i høj kvalitet <br> udvalgt og leveret direkte til døren.</p>
+    <h1 class="main__title">
+        Kvalitetstøj til mænd – på abonnement
+    </h1>
+    <p class="main__description">
+        Sæsonbaseret tøj i høj kvalitet<br>
+        udvalgt og leveret direkte til døren.
+    </p>
 
     <div id="infoToolTipModule" class="info-tooltip-module"></div>
-
-
     <div class="frequence-page__breadcrumbs"></div>
 
     <div class="product-config">
+        <!-- OPTIONS -->
         <div class="product-config__options">
-            <div class="product-config__option-box" id="t-shirt" data-type="T-Shirt">
-                <img class="product-config__option-box-img" src="../assets/images/t-shirt.png" alt="T-Shirt"/>
+            <div class="product-config__option-box" id="t-shirt"  data-type="T-Shirt">
+                <img class="product-config__option-box-img"
+                     src="../assets/images/t-shirt.png"
+                     alt="T-Shirt"/>
                 T-Shirt<br>Pakken
             </div>
-            <div class="product-config__option-box" id="hoodie" data-type="Hoodie">
-                <img class="product-config__option-box-img" src="../assets/images/hoodie-sort.png" alt="Hoodie"/>
+            <div class="product-config__option-box" id="hoodie"    data-type="Hoodie">
+                <img class="product-config__option-box-img"
+                     src="../assets/images/hoodie-sort.png"
+                     alt="Hoodie"/>
                 Hoodie<br>Pakken
             </div>
-            <div class="product-config__option-box" id="shirt" data-type="Skjorte">
-                <img class="product-config__option-box-img" src="../assets/images/shirt-navy.png" alt="Skjorte"/>
+            <div class="product-config__option-box" id="shirt"     data-type="Skjorte">
+                <img class="product-config__option-box-img"
+                     src="../assets/images/shirt-navy.png"
+                     alt="Skjorte"/>
                 Skjorte<br>Pakken
             </div>
         </div>
 
+        <!-- PREVIEW WITH SLIDER -->
         <div class="product-config__preview">
-            <div class="preview-container">
-                <img id="preview-img" class="product-config__preview-img" src="../assets/images/t-shirt.png" alt="Preview"/>
-                <img id="infoToolTip" class="info-tooltip" src="../assets/icons/info.svg" alt="info">
+            <div class="slider-wrapper">
+                <button type="button" class="slider-arrow slider-arrow--left">
+                    &laquo;
+                </button>
+                <img
+                        id="previewImage"
+                        class="product-config__preview-img"
+                        src="../assets/images/t-shirt.png"
+                        alt="Preview"
+                />
+                <button type="button" class="slider-arrow slider-arrow--right">
+                    &raquo;
+                </button>
             </div>
+            <img id="infoToolTip"
+                 class="info-tooltip"
+                 src="../assets/icons/info.svg"
+                 alt="info">
         </div>
 
-        <p></p>
+        <!-- SIZES -->
         <div class="product-config__sizes" id="size-options">
             <div class="product-config__circle-btn" id="size-s">S</div>
             <div class="product-config__circle-btn" id="size-m">M</div>
@@ -55,16 +83,74 @@
             <div class="product-config__circle-btn" id="size-xxl">XXL</div>
             <div class="product-config__circle-btn" id="size-xxxl">XXXL</div>
         </div>
-        <p>Pakken indeholder ovenstående farver</p>
-        <div class="product-config__colors" id="color-options">
 
-
-        </div>
+        <div class="product-config__colors" id="color-options"></div>
     </div>
 
     <div class="next-step"></div>
 </main>
 
+<!-- Your existing module -->
 <script type="module" src="../js/choose-product.js"></script>
+
+<!-- Slider logic -->
+<script>
+    const imageMap = {
+        't-shirt': {
+            Hvid: '../assets/images/t-shirt.png',
+            Navy: '../assets/images/t-shirt-navy.png',
+            Sort: '../assets/images/t-shirt-sort.png'
+        },
+        'hoodie': {
+            Hvid: '../assets/images/hoodie.png',
+            Navy: '../assets/images/hoodie-navy.png',
+            Sort: '../assets/images/hoodie-sort.png'
+        },
+        'shirt': {
+            Hvid: '../assets/images/shirt.png',
+            Navy: '../assets/images/shirt-navy.png',
+            Sort: '../assets/images/shirt-sort.png'
+        }
+    };
+
+    let currentProduct    = 't-shirt';
+    let colorKeys         = Object.keys(imageMap[currentProduct]);
+    let currentColorIndex = 0;
+
+    const previewImage = document.getElementById('previewImage');
+    const leftArrow    = document.querySelector('.slider-arrow--left');
+    const rightArrow   = document.querySelector('.slider-arrow--right');
+    const optionBoxes  = document.querySelectorAll('.product-config__option-box');
+
+    function updatePreview() {
+        const color = colorKeys[currentColorIndex];
+        previewImage.src = imageMap[currentProduct][color];
+    }
+
+    leftArrow.addEventListener('click', () => {
+        currentColorIndex = (currentColorIndex - 1 + colorKeys.length) % colorKeys.length;
+        updatePreview();
+    });
+
+    rightArrow.addEventListener('click', () => {
+        currentColorIndex = (currentColorIndex + 1) % colorKeys.length;
+        updatePreview();
+    });
+
+    optionBoxes.forEach(box => {
+        box.addEventListener('click', () => {
+            currentProduct = box.id;
+            colorKeys      = Object.keys(imageMap[currentProduct]);
+            currentColorIndex = 0;
+            updatePreview();
+
+            optionBoxes.forEach(b => b.classList.remove('product-config__option-box--selected'));
+            box.classList.add('product-config__option-box--selected');
+        });
+    });
+
+    // Initialize on load
+    updatePreview();
+</script>
 </body>
 </html>

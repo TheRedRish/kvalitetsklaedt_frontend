@@ -8,9 +8,10 @@ document.body.prepend(navbar());
 
 const imageMap = {
     't-shirt': {
+        shirtpakke: '../assets/images/3pakke.png',
         Hvid: '../assets/images/t-shirt.png',
         Navy: '../assets/images/t-shirt-navy.png',
-        Sort: '../assets/images/t-shirt-sort.png'
+        wriggle: '../assets/images/t-shirt-wriggle-color.png',
     },
     'hoodie': {
         Hvid: '../assets/images/hoodie.png',
@@ -23,6 +24,45 @@ const imageMap = {
         Sort: '../assets/images/shirt-sort.png'
     }
 };
+
+let currentProduct    = 't-shirt';
+let colorKeys         = Object.keys(imageMap[currentProduct]);
+let currentColorIndex = 0;
+
+const previewImage = document.getElementById('previewImage');
+const leftArrow    = document.querySelector('.slider-arrow--left');
+const rightArrow   = document.querySelector('.slider-arrow--right');
+const optionBoxes  = document.querySelectorAll('.product-config__option-box');
+
+function updatePreview() {
+    const color = colorKeys[currentColorIndex];
+    previewImage.src = imageMap[currentProduct][color];
+}
+
+leftArrow.addEventListener('click', () => {
+    currentColorIndex = (currentColorIndex - 1 + colorKeys.length) % colorKeys.length;
+    updatePreview();
+});
+
+rightArrow.addEventListener('click', () => {
+    currentColorIndex = (currentColorIndex + 1) % colorKeys.length;
+    updatePreview();
+});
+
+optionBoxes.forEach(box => {
+    box.addEventListener('click', () => {
+        currentProduct = box.id;
+        colorKeys      = Object.keys(imageMap[currentProduct]);
+        currentColorIndex = 0;
+        updatePreview();
+
+        optionBoxes.forEach(b => b.classList.remove('product-config__option-box--selected'));
+        box.classList.add('product-config__option-box--selected');
+    });
+});
+
+// Initialize on load
+updatePreview();
 
 document.querySelector(".next-step").appendChild(
     createActionButton('Næste', 'choose-frequence-page.html', 'next-step__btn')
