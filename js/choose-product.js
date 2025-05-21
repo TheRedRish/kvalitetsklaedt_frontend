@@ -1,6 +1,6 @@
-import { navbar } from "../components/navbar.js";
-import { createBreadcrumb } from '../components/breadcrumbs.js';
-import { createActionButton } from '../components/action-button.js';
+import {navbar} from "../components/navbar.js";
+import {createBreadcrumb} from '../components/breadcrumbs.js';
+import {createActionButton} from '../components/action-button.js';
 import {sizingGuide, sizingGuideModule} from '../components/sizingGuide.js';
 
 document.body.prepend(navbar());
@@ -30,7 +30,11 @@ document.querySelector(".next-step").appendChild(
 
 if (!sessionStorage.getItem('orderSummary')) {
     // Setting default values, selected type only attribute to get a default value, per user story requirements
-    sessionStorage.setItem('orderSummary', JSON.stringify({selectedProductType: 't-shirt', selectedSize: null, selectedColor: null}));
+    sessionStorage.setItem('orderSummary', JSON.stringify({
+        selectedProductType: 't-shirt',
+        selectedSize: null,
+        selectedColor: null
+    }));
 }
 
 let orderSummary = JSON.parse(sessionStorage.getItem('orderSummary'));
@@ -150,21 +154,28 @@ sizeButtons.forEach(button => {
     });
 });
 
-
 nextButton.addEventListener('click', (e) => {
-    if (!orderSummary.selectedSize) {
+    if (!checkOrderSummary()) {
         e.preventDefault();
-        nextButton.innerHTML = "Vælg en størrelse ⛔️";
-
-        nextButton.style.backgroundColor = '#c44545';
     }
 });
-
 updateColorOptions(orderSummary.selectedProductType);
 
-const breadcrumbContainer  = document.querySelector(".frequence-page__breadcrumbs");
-if (breadcrumbContainer ) {
-    breadcrumbContainer .appendChild(createBreadcrumb(1));
+const breadcrumbContainer = document.querySelector(".frequence-page__breadcrumbs");
+if (breadcrumbContainer) {
+    breadcrumbContainer.appendChild(createBreadcrumb(1, checkOrderSummary));
+}
+
+function checkOrderSummary() {
+    const orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || null;
+    const orderSummarySelectedSize = orderSummary !== null && orderSummary.selectedSize !== null;
+
+    if (!orderSummarySelectedSize) {
+        nextButton.innerHTML = "Vælg en størrelse ⛔️";
+        nextButton.style.backgroundColor = '#c44545';
+    }
+
+    return orderSummarySelectedSize;
 }
 
 sizingGuide();
