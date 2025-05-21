@@ -87,6 +87,13 @@ html, body {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
 
+.newsletter-signup__icon {
+    /* Requirement from Facebook that icon is a minimum of 16px size and 1/4x padding */
+    height: 32px;
+    padding: 4px; /* combined padding of logos is 8px */
+    box-sizing: content-box;
+}
+
 .newsletter-signup__modal-close-btn {
     position: absolute;
     top: -20px;
