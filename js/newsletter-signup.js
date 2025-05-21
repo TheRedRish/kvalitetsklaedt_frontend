@@ -43,17 +43,17 @@ newsletterSubscriptionButton.addEventListener("click", async (e) => {
     };
 
     try {
-        // const response = await fetch("http://localhost:8080/api/customers/subscribe-feedback", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(payload)
-        // });
+        const response = await fetch("http://localhost:8080/api/customers/subscribe-feedback", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
 
-        // if (!response.ok) {
-        //     throw new Error("Fejl ved oprettelse");
-        // }
+        if (!response.ok) {
+            throw new Error("Fejl ved oprettelse");
+        }
 
         const succesModal = document.getElementById("success-modal");
         succesModal.style.display = "block";
