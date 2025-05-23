@@ -43,7 +43,7 @@ newsletterSubscriptionButton.addEventListener("click", async (e) => {
     };
 
     try {
-        const response = await fetch("http://localhost:8080/api/customers/subscribe-feedback", {
+        const response = await fetch("kvalitetsklaedt-backend-fzh5gff8ccdrbyg3.northeurope-01.azurewebsites.net/api/customers/subscribe-feedback", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
