@@ -13,6 +13,21 @@ openBtn.addEventListener("click", () => {
         return;
     }
     module.style.display = "flex";
+
+    fetch("https://kvalitetsklaedt-backend-fzh5gff8ccdrbyg3.northeurope-01.azurewebsites.net/api/customers/accessories-feedback", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            feedback: textarea.value.trim()
+        })
+    }).then(response => {
+        console.log(response);
+        if (!response.ok) {
+            throw new Error("Fejl ved oprettelse");
+        }
+    })
 });
 
 closeBtn.addEventListener("click", () => {
