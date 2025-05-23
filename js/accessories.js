@@ -2,7 +2,7 @@ import { navbar } from "../components/navbar.js";
 document.body.prepend(navbar());
 
 const module = document.querySelector("#accessories-module");
-const closeBtn = document.querySelector("#closeFeedback");
+const closeBtn = document.querySelector("#close-Feedback");
 const openBtn = document.querySelector("#accessories-button");
 const textarea = document.querySelector(".accessories-input-div__textarea");
 
