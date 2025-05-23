@@ -5,12 +5,12 @@ import {sizingGuide, sizingGuideModule} from '../components/sizingGuide.js';
 
 document.body.prepend(navbar());
 
-
 const imageMap = {
     't-shirt': {
+        shirtpakke: '../assets/images/3pakke.png',
         Hvid: '../assets/images/t-shirt.png',
         Navy: '../assets/images/t-shirt-navy.png',
-        Sort: '../assets/images/t-shirt-sort.png'
+        wriggle: '../assets/images/t-shirt-wriggle-color.png',
     },
     'hoodie': {
         Hvid: '../assets/images/hoodie.png',
@@ -23,6 +23,57 @@ const imageMap = {
         Sort: '../assets/images/shirt-sort.png'
     }
 };
+let currentColorIndex = 0;
+
+const previewContainer = document.querySelector('.product-config__preview');
+const leftArrow = document.querySelector('.slider-arrow--left');
+const rightArrow = document.querySelector('.slider-arrow--right');
+const optionBoxes = document.querySelectorAll('.product-config__option-box');
+let orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || {};
+
+function updatePreview() {
+    orderSummary.selectedColor = Object.keys(imageMap[orderSummary.selectedProductType])[currentColorIndex];
+    updateCarouselAndImage(orderSummary.selectedProductType)
+}
+
+leftArrow.addEventListener('click', () => {
+    currentColorIndex = (currentColorIndex - 1 + Object.keys(imageMap[orderSummary.selectedProductType]).length) % Object.keys(imageMap[orderSummary.selectedProductType]).length;
+    updatePreview();
+});
+
+rightArrow.addEventListener('click', () => {
+    currentColorIndex = (currentColorIndex + 1) % Object.keys(imageMap[orderSummary.selectedProductType]).length;
+    updatePreview();
+});
+
+let startX = 0;
+
+previewContainer.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+});
+
+previewContainer.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (Math.abs(diff) > 30) {
+        if (diff > 0) {
+            rightArrow.click();
+        } else {
+            leftArrow.click();
+        }
+    }
+});
+
+optionBoxes.forEach(box => {
+    box.addEventListener('click', () => {
+        currentColorIndex = 0;
+        updatePreview();
+
+        optionBoxes.forEach(b => b.classList.remove('product-config__option-box--selected'));
+        box.classList.add('product-config__option-box--selected');
+    });
+});
 
 document.querySelector(".next-step").appendChild(
     createActionButton('Næste', 'choose-frequence-page.html', 'next-step__btn')
@@ -37,54 +88,63 @@ if (!sessionStorage.getItem('orderSummary')) {
     }));
 }
 
-let orderSummary = JSON.parse(sessionStorage.getItem('orderSummary'));
-
-const previewImg = document.querySelector('.product-config__preview-img');
-const colorContainer = document.getElementById('color-options');
-const nextButton = document.querySelector('.next-step__btn');
-const sizeButtons = document.querySelectorAll('#size-options .product-config__circle-btn');
-
 function updateOrderSummary() {
     sessionStorage.setItem('orderSummary', JSON.stringify(orderSummary));
 }
 
-function updateColorOptions(type) {
-    colorContainer.innerHTML = '';
+const previewImg = document.querySelector('.product-config__preview-img');
+const carouselDots = document.getElementById('product-config__carousel-dots');
+const nextButton = document.querySelector('.next-step__btn');
+const sizeButtons = document.querySelectorAll('#size-options .product-config__circle-btn');
 
+function renderColorOptions(type) {
+    carouselDots.innerHTML = '';
+
+    let counter = 0;
     for (const color in imageMap[type]) {
-        const box = document.createElement('div');
-        box.classList.add('product-config__option-box');
-        box.dataset.img = imageMap[type][color];
-
-        const img = document.createElement('img');
-        img.src = imageMap[type][color];
-        img.alt = color;
-
-        box.appendChild(img);
-        box.append(color);
+        const carouselDot = document.createElement('div');
+        carouselDot.classList.add('dot');
+        carouselDot.dataset.color = imageMap[type][color];
 
         if (color === orderSummary.selectedColor) {
-            box.classList.add('product-config__option-box--selected');
+            carouselDot.classList.add('active');
             previewImg.src = imageMap[type][color];
+            currentColorIndex = counter;
         }
 
-        box.addEventListener('click', () => {
+        carouselDot.addEventListener('click', () => {
 
-            document.querySelectorAll('#color-options .product-config__option-box').forEach(b =>
-                b.classList.remove('product-config__option-box--selected')
+            document.querySelectorAll('#product-config__carousel-dots .dot.active').forEach(b =>
+                b.classList.remove('active')
             );
 
-            box.classList.add('product-config__option-box--selected');
-            previewImg.src = box.dataset.img;
+            carouselDot.classList.add('active');
+            previewImg.src = imageMap[type][color];
 
             orderSummary.selectedColor = color;
             updateOrderSummary();
         });
 
-        colorContainer.appendChild(box);
+        carouselDots.appendChild(carouselDot);
+
+        counter++;
     }
 }
 
+function updateCarouselAndImage() {
+    previewImg.src = imageMap[orderSummary.selectedProductType][orderSummary.selectedColor];
+    document.querySelectorAll('#product-config__carousel-dots .dot.active').forEach(b =>
+        b.classList.remove('active')
+    );
+
+    document.querySelectorAll('#product-config__carousel-dots .dot').forEach(b => {
+            if (b.dataset.color === imageMap[orderSummary.selectedProductType][orderSummary.selectedColor]) {
+                b.classList.add('active');
+            }
+        }
+    );
+    previewImg.src = imageMap[orderSummary.selectedProductType][orderSummary.selectedColor];
+}
 
 document.querySelectorAll('.product-config__options .product-config__option-box').forEach(option => {
     option.addEventListener('click', () => {
@@ -103,7 +163,7 @@ document.querySelectorAll('.product-config__options .product-config__option-box'
             orderSummary.selectedColor = getColorByImageSrc(img.src, orderSummary.selectedProductType);
         }
 
-        updateColorOptions(orderSummary.selectedProductType);
+        renderColorOptions(orderSummary.selectedProductType);
         updateOrderSummary();
     });
 });
@@ -159,11 +219,12 @@ nextButton.addEventListener('click', (e) => {
         e.preventDefault();
     }
 });
-updateColorOptions(orderSummary.selectedProductType);
+
+renderColorOptions(orderSummary.selectedProductType);
 
 const breadcrumbContainer = document.querySelector(".frequence-page__breadcrumbs");
 if (breadcrumbContainer) {
-    breadcrumbContainer.appendChild(createBreadcrumb(1, checkOrderSummary));
+    breadcrumbContainer.appendChild(createBreadcrumb(1));
 }
 
 function checkOrderSummary() {

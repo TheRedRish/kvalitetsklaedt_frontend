@@ -28,6 +28,7 @@
     border-radius: 0.5rem;
     border: 1px solid var(--gold);
     overflow: hidden;
+
 }
 
 .info-tooltip-module__close-btn {

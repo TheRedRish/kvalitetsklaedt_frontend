@@ -1,7 +1,7 @@
 export function sizingGuide ()  {
     document.addEventListener("DOMContentLoaded", () => {
-        const infoIcon = document.getElementById("infoToolTip");
-        const infoModule = document.getElementById("infoToolTipModule");
+        const infoIcon = document.getElementById("info-tooltip");
+        const infoModule = document.getElementById("info-tooltip-module");
         const closeBtn = document.getElementById("closeInfo");
 
         infoModule.style.display = "none";
@@ -29,7 +29,7 @@ export function sizingGuide ()  {
 }
 
 export function sizingGuideModule () {
-    document.querySelector("#infoToolTipModule").innerHTML = `
+    document.querySelector("#info-tooltip-module").innerHTML = `
             <button id="closeInfo" class="info-tooltip-module__close-btn" aria-label="Luk">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#d7be74" stroke-width="1.5" stroke-linecap="round"/>
