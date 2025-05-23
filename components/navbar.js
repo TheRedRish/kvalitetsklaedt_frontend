@@ -13,6 +13,7 @@ export function navbar() {
         <div id="burgerDropdown" class="dropdown-menu hidden">
             <a class="dropDownATags" href="../html/aboutPage.html">Læs mere</a>
             <a class="dropDownATags" href="../html/contactPage.html">Kontakt</a>
+            <a class="dropDownATags" href="../html/accessories.html"> <span style="color: var(--gold)">*Coming soon*</span> <br> Accessories</a>
         </div>
     `;
 
