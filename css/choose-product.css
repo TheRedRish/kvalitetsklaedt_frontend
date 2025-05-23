@@ -75,7 +75,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-
+    width: 6rem;
+    align-items: center;
 }
 
 .product-config__colors {
@@ -196,3 +197,24 @@
 }
 .slider-arrow--left  { left: 0.5rem; }
 .slider-arrow--right { right: 0.5rem; }
+
+#product-config__carousel-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 10px;
+    grid-column: 2;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.dot.active {
+    opacity: 1;
+}
