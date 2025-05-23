@@ -23,7 +23,6 @@ openBtn.addEventListener("click", () => {
             feedback: textarea.value.trim()
         })
     }).then(response => {
-        console.log(response);
         if (!response.ok) {
             throw new Error("Fejl ved oprettelse");
         }
