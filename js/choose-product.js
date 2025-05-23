@@ -198,13 +198,9 @@ sizeButtons.forEach(button => {
     });
 });
 
-
 nextButton.addEventListener('click', (e) => {
-    if (!orderSummary.selectedSize) {
+    if (!checkOrderSummary()) {
         e.preventDefault();
-        nextButton.innerHTML = "Vælg en størrelse ⛔️";
-
-        nextButton.style.backgroundColor = '#c44545';
     }
 });
 
@@ -213,6 +209,18 @@ renderColorOptions(orderSummary.selectedProductType);
 const breadcrumbContainer = document.querySelector(".frequence-page__breadcrumbs");
 if (breadcrumbContainer) {
     breadcrumbContainer.appendChild(createBreadcrumb(1));
+}
+
+function checkOrderSummary() {
+    const orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || null;
+    const orderSummarySelectedSize = orderSummary !== null && orderSummary.selectedSize !== null;
+
+    if (!orderSummarySelectedSize) {
+        nextButton.innerHTML = "Vælg en størrelse ⛔️";
+        nextButton.style.backgroundColor = '#c44545';
+    }
+
+    return orderSummarySelectedSize;
 }
 
 sizingGuide();

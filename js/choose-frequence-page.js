@@ -1,7 +1,7 @@
-import { createFrequenceCard } from '../components/frequence-card.js';
-import { createActionButton } from '../components/action-button.js';
-import { navbar } from "../components/navbar.js";
-import { createBreadcrumb } from '../components/breadcrumbs.js';
+import {createFrequenceCard} from '../components/frequence-card.js';
+import {createActionButton} from '../components/action-button.js';
+import {navbar} from "../components/navbar.js";
+import {createBreadcrumb} from '../components/breadcrumbs.js';
 
 document.body.prepend(navbar());
 
@@ -46,21 +46,26 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.addEventListener("click", (e) => {
             if (!checkOrderSummary()) {
                 e.preventDefault();
-                nextButton.innerHTML = "Vælg en frekvens ⛔️";
-
-                nextButton.style.backgroundColor = '#c44545';
             }
         })
     }
 
     const breadcrumbContainer = document.querySelector(".frequence-page__breadcrumbs");
     if (breadcrumbContainer) {
-        breadcrumbContainer.appendChild(createBreadcrumb(2));
+        breadcrumbContainer.appendChild(createBreadcrumb(2, checkOrderSummary));
     }
 
 });
 
 function checkOrderSummary() {
-    const orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || {};
-    return (orderSummary !== null && typeof orderSummary.frequency == "string")
+    const orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || null;
+    const orderSummaryFrequency = orderSummary !== null && typeof orderSummary.frequency == "string";
+
+    if (!orderSummaryFrequency) {
+        const nextButton = document.querySelector(".button--confirm");
+        nextButton.innerHTML = "Vælg en frekvens ⛔️";
+        nextButton.style.backgroundColor = '#c44545';
+    }
+
+    return orderSummaryFrequency;
 }
