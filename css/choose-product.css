@@ -210,7 +210,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: var(--grey);
     opacity: 0.5;
     transition: opacity 0.3s;
 }

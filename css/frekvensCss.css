@@ -37,8 +37,8 @@ main {
 }
 
 .frequence-card__content {
-    background-color: #131A24;
-    border: 1px solid #3E3E3E;
+    background-color: var(--blue);
+    border: 1px solid var(--grey);
     border-radius: 12px;
     padding: 0.6rem 1rem;
     margin-bottom: 0.6rem;

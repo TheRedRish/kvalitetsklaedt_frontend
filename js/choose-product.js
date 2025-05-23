@@ -5,7 +5,6 @@ import {sizingGuide, sizingGuideModule} from '../components/sizingGuide.js';
 
 document.body.prepend(navbar());
 
-
 const imageMap = {
     't-shirt': {
         shirtpakke: '../assets/images/3pakke.png',
@@ -30,7 +29,7 @@ const previewContainer = document.querySelector('.product-config__preview');
 const leftArrow = document.querySelector('.slider-arrow--left');
 const rightArrow = document.querySelector('.slider-arrow--right');
 const optionBoxes = document.querySelectorAll('.product-config__option-box');
-let orderSummary = JSON.parse(sessionStorage.getItem('orderSummary'));
+let orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || {};
 
 function updatePreview() {
     orderSummary.selectedColor = Object.keys(imageMap[orderSummary.selectedProductType])[currentColorIndex];
@@ -94,13 +93,11 @@ function updateOrderSummary() {
 }
 
 const previewImg = document.querySelector('.product-config__preview-img');
-// const colorContainer = document.getElementById('color-options');
 const carouselDots = document.getElementById('product-config__carousel-dots');
 const nextButton = document.querySelector('.next-step__btn');
 const sizeButtons = document.querySelectorAll('#size-options .product-config__circle-btn');
 
 function renderColorOptions(type) {
-    // colorContainer.innerHTML = '';
     carouselDots.innerHTML = '';
 
     let counter = 0;
