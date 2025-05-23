@@ -29,7 +29,16 @@ const previewContainer = document.querySelector('.product-config__preview');
 const leftArrow = document.querySelector('.slider-arrow--left');
 const rightArrow = document.querySelector('.slider-arrow--right');
 const optionBoxes = document.querySelectorAll('.product-config__option-box');
-let orderSummary = JSON.parse(sessionStorage.getItem('orderSummary')) || {};
+
+if (!sessionStorage.getItem('orderSummary')) {
+    // Setting default values, selected type only attribute to get a default value, per user story requirements
+    sessionStorage.setItem('orderSummary', JSON.stringify({
+        selectedProductType: 't-shirt',
+        selectedSize: null,
+        selectedColor: Object.keys(imageMap['t-shirt'])[0]
+    }));
+}
+let orderSummary = JSON.parse(sessionStorage.getItem('orderSummary'));
 
 function updatePreview() {
     orderSummary.selectedColor = Object.keys(imageMap[orderSummary.selectedProductType])[currentColorIndex];
@@ -78,15 +87,6 @@ optionBoxes.forEach(box => {
 document.querySelector(".next-step").appendChild(
     createActionButton('Næste', 'choose-frequence-page.html', 'next-step__btn')
 );
-
-if (!sessionStorage.getItem('orderSummary')) {
-    // Setting default values, selected type only attribute to get a default value, per user story requirements
-    sessionStorage.setItem('orderSummary', JSON.stringify({
-        selectedProductType: 't-shirt',
-        selectedSize: null,
-        selectedColor: null
-    }));
-}
 
 function updateOrderSummary() {
     sessionStorage.setItem('orderSummary', JSON.stringify(orderSummary));
