@@ -34,7 +34,7 @@
         <div class="product-config__options">
             <div class="product-config__option-box" id="t-shirt"  data-type="T-Shirt">
                 <img class="product-config__option-box-img"
-                     src="../assets/images/t-shirt.png"
+                     src="../assets/images/3pakke.png"
                      alt="T-Shirt"/>
                 T-Shirt<br>Pakken
             </div>
@@ -93,64 +93,6 @@
 <!-- Your existing module -->
 <script type="module" src="../js/choose-product.js"></script>
 
-<!-- Slider logic -->
-<script>
-    const imageMap = {
-        't-shirt': {
-            Hvid: '../assets/images/t-shirt.png',
-            Navy: '../assets/images/t-shirt-navy.png',
-            Sort: '../assets/images/t-shirt-sort.png'
-        },
-        'hoodie': {
-            Hvid: '../assets/images/hoodie.png',
-            Navy: '../assets/images/hoodie-navy.png',
-            Sort: '../assets/images/hoodie-sort.png'
-        },
-        'shirt': {
-            Hvid: '../assets/images/shirt.png',
-            Navy: '../assets/images/shirt-navy.png',
-            Sort: '../assets/images/shirt-sort.png'
-        }
-    };
 
-    let currentProduct    = 't-shirt';
-    let colorKeys         = Object.keys(imageMap[currentProduct]);
-    let currentColorIndex = 0;
-
-    const previewImage = document.getElementById('previewImage');
-    const leftArrow    = document.querySelector('.slider-arrow--left');
-    const rightArrow   = document.querySelector('.slider-arrow--right');
-    const optionBoxes  = document.querySelectorAll('.product-config__option-box');
-
-    function updatePreview() {
-        const color = colorKeys[currentColorIndex];
-        previewImage.src = imageMap[currentProduct][color];
-    }
-
-    leftArrow.addEventListener('click', () => {
-        currentColorIndex = (currentColorIndex - 1 + colorKeys.length) % colorKeys.length;
-        updatePreview();
-    });
-
-    rightArrow.addEventListener('click', () => {
-        currentColorIndex = (currentColorIndex + 1) % colorKeys.length;
-        updatePreview();
-    });
-
-    optionBoxes.forEach(box => {
-        box.addEventListener('click', () => {
-            currentProduct = box.id;
-            colorKeys      = Object.keys(imageMap[currentProduct]);
-            currentColorIndex = 0;
-            updatePreview();
-
-            optionBoxes.forEach(b => b.classList.remove('product-config__option-box--selected'));
-            box.classList.add('product-config__option-box--selected');
-        });
-    });
-
-    // Initialize on load
-    updatePreview();
-</script>
 </body>
 </html>
