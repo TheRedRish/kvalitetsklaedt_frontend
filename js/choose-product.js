@@ -26,7 +26,7 @@ const imageMap = {
 };
 let currentColorIndex = 0;
 
-const previewImage = document.getElementById('previewImage');
+const previewContainer = document.querySelector('.product-config__preview');
 const leftArrow = document.querySelector('.slider-arrow--left');
 const rightArrow = document.querySelector('.slider-arrow--right');
 const optionBoxes = document.querySelectorAll('.product-config__option-box');
@@ -45,6 +45,25 @@ leftArrow.addEventListener('click', () => {
 rightArrow.addEventListener('click', () => {
     currentColorIndex = (currentColorIndex + 1) % Object.keys(imageMap[orderSummary.selectedProductType]).length;
     updatePreview();
+});
+
+let startX = 0;
+
+previewContainer.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+});
+
+previewContainer.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (Math.abs(diff) > 30) {
+        if (diff > 0) {
+            rightArrow.click();
+        } else {
+            leftArrow.click();
+        }
+    }
 });
 
 optionBoxes.forEach(box => {
